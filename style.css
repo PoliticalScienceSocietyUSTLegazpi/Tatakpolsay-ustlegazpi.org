@@ -6947,3 +6947,196 @@ body.gallery-lightbox-open {
     }
 }
 
+
+/* Portrait-device fallback: handles mobile browsers using a desktop-style viewport */
+@media (orientation: portrait) and (max-width: 1100px) {
+    html,
+    body.home-page {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .home-page .home-shell {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .home-page .home-hero {
+        min-height: 100svh !important;
+        padding-bottom: 0 !important;
+        background:
+            linear-gradient(180deg, rgba(10, 4, 32, .30), rgba(10, 4, 32, .08)),
+            url("images/home-mobile-bg.jpg") center top / cover no-repeat !important;
+    }
+
+    .home-page .home-hero::before,
+    .home-page .home-hero::after,
+    .home-page .home-map,
+    .home-page .hero-art,
+    .home-page .hero-wave,
+    .home-page .home-feature-band {
+        display: none !important;
+    }
+
+    .home-page .navbar.home-navbar {
+        position: relative !important;
+        min-height: 82px !important;
+        height: 82px !important;
+        padding: 16px 22px 8px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: space-between !important;
+        background: rgba(19, 9, 45, .18) !important;
+    }
+
+    .home-page .logo.home-logo {
+        width: auto !important;
+        max-width: calc(100% - 64px) !important;
+        min-width: 0 !important;
+        gap: 10px !important;
+    }
+
+    .home-page .logo.home-logo img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .home-page .logo.home-logo strong {
+        max-width: 210px !important;
+        font-size: 14px !important;
+        line-height: 1.05 !important;
+    }
+
+    .home-page .logo.home-logo em {
+        font-size: 9px !important;
+        letter-spacing: 2px !important;
+    }
+
+    .home-page .mobile-menu-btn {
+        position: absolute !important;
+        top: 25px !important;
+        right: 24px !important;
+        z-index: 5001 !important;
+        width: 34px !important;
+        height: 34px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+    }
+
+    .home-page .mobile-menu-btn span {
+        display: block !important;
+        width: 25px !important;
+        height: 3px !important;
+        margin: 0 !important;
+        border-radius: 999px !important;
+        background: #fff !important;
+    }
+
+    .home-page .nav-links {
+        position: absolute !important;
+        top: 72px !important;
+        left: 18px !important;
+        right: 18px !important;
+        z-index: 5000 !important;
+        display: none !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        padding: 10px !important;
+        border: 1px solid rgba(255, 214, 10, .35) !important;
+        border-radius: 16px !important;
+        background: rgba(36, 12, 73, .98) !important;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, .34) !important;
+    }
+
+    .home-page .nav-links.active {
+        display: flex !important;
+    }
+
+    .home-page .nav-links li,
+    .home-page .nav-links a {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .home-page .nav-links a {
+        display: block !important;
+        padding: 13px 14px !important;
+        border-radius: 10px !important;
+        font-size: 15px !important;
+        text-align: left !important;
+    }
+
+    .home-page .home-hero-inner {
+        display: block !important;
+        min-height: 0 !important;
+        padding: 34px 28px 46px !important;
+    }
+
+    .home-page .home-copy {
+        width: 100% !important;
+        max-width: 520px !important;
+        padding-top: 0 !important;
+    }
+
+    .home-page .home-kicker {
+        margin-bottom: 9px !important;
+        font-size: clamp(18px, 4.8vw, 23px) !important;
+    }
+
+    .home-page .home-copy h1 {
+        max-width: 480px !important;
+        font-size: clamp(34px, 9vw, 52px) !important;
+        line-height: 1.12 !important;
+    }
+
+    .home-page .gold-divider {
+        width: min(100%, 390px) !important;
+        gap: 12px !important;
+        margin: 20px 0 !important;
+    }
+
+    .home-page .gold-divider span {
+        width: auto !important;
+        flex: 1 1 auto !important;
+    }
+
+    .home-page .home-divider-laurel {
+        width: 58px !important;
+        height: 36px !important;
+    }
+
+    .home-page .home-subtitle {
+        max-width: 440px !important;
+        margin-bottom: 24px !important;
+        font-size: clamp(15px, 3.8vw, 18px) !important;
+        line-height: 1.55 !important;
+    }
+
+    .home-page .hero-buttons {
+        width: min(100%, 390px) !important;
+        max-width: 390px !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .home-page .hero-buttons .btn,
+    .home-page .hero-buttons .primary-btn,
+    .home-page .hero-buttons .secondary {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 50px !important;
+        min-height: 50px !important;
+        padding: 0 18px !important;
+        justify-content: center !important;
+        font-size: 15px !important;
+    }
+}
