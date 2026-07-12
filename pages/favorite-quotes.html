@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Collection</title>
+
+        <link rel="preload" as="image" href="../images/logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="../images/background1.png" fetchpriority="high">
+        <link rel="preload" as="image" href="../images/background-portrait.jpg" media="(max-width: 900px), (orientation: portrait)" fetchpriority="high">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../political-wisdom.css">
+    <link rel="preload" as="image" href="../images/backgrounds/library.png" fetchpriority="high">
+    <link rel="prefetch" href="../images/backgrounds/library.png">
+    
+    <style>
+     body.collection-page {
+        min-height: 100vh;
+
+        background-image:
+            linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
+            url("../images/backgrounds/library.png") !important;
+
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+    }
+
+    body.collection-page .collection-box {
+        background: rgba(255, 255, 255, 0.14) !important;
+        background-color: rgba(255, 255, 255, 0.14) !important;
+        border: 1px solid rgba(255, 255, 255, 0.28) !important;
+        border-radius: 30px;
+        box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    }
+
+    body.collection-page #favoritesContainer > .saved-card {
+        background: rgba(255, 255, 255, 0.14) !important;
+        background-color: rgba(255, 255, 255, 0.14) !important;
+        border: 1px solid rgba(255, 255, 255, 0.28) !important;
+        border-radius: 24px;
+        box-shadow: 0 16px 35px rgba(0,0,0,.20);
+    }
+
+    #favoritesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.saved-card {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 55px 70px;
+}
+
+.saved-card .category-badge {
+    margin-top: 10px;
+}
+
+.collection-box {
+    padding: 70px 80px;
+}
+
+.collection-box h1 {
+    margin-bottom: 45px;
+}
+
+    body.collection-page h1 {
+        color: white;
+        text-shadow: 0 4px 15px rgba(0,0,0,.60);
+    }
+
+    .saved-quote-text {
+    font-size: 30px;
+    line-height: 1.7;
+    color: white !important;
+    font-style: italic;
+    margin-bottom: 35px;
+    text-shadow: 0 3px 10px rgba(0,0,0,.60);
+}
+
+    .saved-quote-author {
+    color: #FFD60A !important;
+    font-size: 30px;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 10px rgba(0,0,0,.60);
+}
+
+/* ===========================
+   SAVED QUOTES MOBILE FIX
+=========================== */
+
+@media (max-width: 768px) {
+
+    .collection-box {
+        width: 92% !important;
+        max-width: 92% !important;
+        padding: 38px 18px !important;
+        margin: 40px auto !important;
+    }
+
+    .collection-box h1 {
+        font-size: 42px !important;
+        line-height: 1.15 !important;
+        text-align: center !important;
+    }
+
+    .saved-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 32px 20px !important;
+        margin: 0 auto 28px !important;
+        box-sizing: border-box !important;
+    }
+
+    .saved-quote-text {
+        font-size: 22px !important;
+        line-height: 1.6 !important;
+        text-align: center !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+    }
+
+    .saved-author {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+        margin-top: 25px !important;
+    }
+
+    .saved-card .category-badge {
+        font-size: 18px !important;
+        padding: 14px 24px !important;
+        display: block !important;
+        width: fit-content !important;
+        margin: 22px auto 0 !important;
+    }
+}
+
+</style>
+
+</head>
+
+<body class="collection-page">
+
+<section class="quote-section">
+        <div class="hero-header collection-box">
+
+        <h1>❤️ My Saved Quotes</h1>
+
+        <div id="favoritesContainer"></div>
+
+        <a class="collection-btn" href="political-wisdom.html">
+            Back to Political Wisdom
+        </a>
+
+    </div>
+</section>
+
+<script>
+    const favoritesContainer = document.getElementById("favoritesContainer");
+    const favorites = JSON.parse(localStorage.getItem("favoriteQuotes")) || [];
+
+    if (favorites.length === 0) {
+        favoritesContainer.innerHTML = `
+            <p>No saved quotes yet.</p>
+        `;
+    } else {
+        favoritesContainer.innerHTML = favorites.map(item => `
+            <div class="saved-card">
+                <p class="saved-quote-text">"${item.quote}"</p>
+                <h2 class="saved-quote-author">${item.author}</h2>
+                <div class="category-badge">${item.category}</div>
+            </div>
+        `).join("");
+    }
+</script>
+
+</body>
+
+</html>
+        

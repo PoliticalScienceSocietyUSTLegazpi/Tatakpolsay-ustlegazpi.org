@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Saved Terms | UST-L Political Science</title>
+
+        <link rel="preload" as="image" href="../images/logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="../images/background1.png" fetchpriority="high">
+        <link rel="preload" as="image" href="../images/background-portrait.jpg" media="(max-width: 900px), (orientation: portrait)" fetchpriority="high">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="page-background">
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="../images/logo.png" alt="Logo" loading="eager" decoding="async" fetchpriority="high">
+        <span>UST-L Political Science</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="officers.html">Officers</a></li>
+        <li><a href="accomplishments.html">Accomplishments</a></li>
+        <li><a href="resources.html" class="active-page">Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="concern.html">Concern</a></li>
+    </ul>
+</nav>
+
+<header class="page-banner">
+    <h1>My Saved Terms</h1>
+</header>
+
+<section class="dictionary-section">
+
+    <div class="dictionary-search-card">
+        <h2>❤️ Saved Political Terms</h2>
+        <p>Review the terms you saved from the Political Dictionary.</p>
+
+        <a href="political-dictionary.html" class="dictionary-saved-link">
+            ← Back to Political Dictionary
+        </a>
+    </div>
+
+    <div id="savedTermsContainer" class="dictionary-grid"></div>
+
+</section>
+
+<script>
+    const savedTermsContainer = document.getElementById("savedTermsContainer");
+    const savedTerms = JSON.parse(localStorage.getItem("savedTerms")) || [];
+
+    if (savedTerms.length === 0) {
+        savedTermsContainer.innerHTML = `
+            <div class="dictionary-card empty-saved-card">
+                <h3>No saved terms yet.</h3>
+                <p>Go back to the Political Dictionary and save terms you want to review later.</p>
+            </div>
+        `;
+    } else {
+        savedTermsContainer.innerHTML = savedTerms.map(item => `
+            <div class="dictionary-card">
+                <span class="dict-badge">${item.category}</span>
+                <h3>${item.term}</h3>
+                <p><strong>Definition:</strong> ${item.definition}</p>
+                <p><strong>Simple Meaning:</strong> ${item.simple}</p>
+                <p><strong>Example:</strong> ${item.example}</p>
+                <p><strong>Related Terms:</strong> ${item.related}</p>
+            </div>
+        `).join("");
+    }
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
