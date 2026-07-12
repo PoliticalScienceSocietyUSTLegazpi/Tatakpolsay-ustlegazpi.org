@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Science Trivia | UST-L Political Science</title>
+
+        <link rel="preload" as="image" href="../images/logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="../images/background1.png" fetchpriority="high">
+        <link rel="preload" as="image" href="../images/background-portrait.jpg" media="(max-width: 900px), (orientation: portrait)" fetchpriority="high">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../political-science-trivia.css">
+    <link rel="preload" as="image" href="../images2/political-trivia/Political-trivia1.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="../images2/political-trivia/Political-trivia2.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="../images2/political-trivia/Political-trivia3.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="../images2/political-trivia/Political-trivia-saved-facts.jpg" fetchpriority="high">
+    <link rel="prefetch" href="../images2/political-trivia/Political-trivia1.jpg">
+    <link rel="prefetch" href="../images2/political-trivia/Political-trivia2.jpg">
+    <link rel="prefetch" href="../images2/political-trivia/Political-trivia3.jpg">
+    <link rel="prefetch" href="../images2/political-trivia/Political-trivia-saved-facts.jpg">
+    </head>
+
+<body class="trivia-page">
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="../images/logo.png" alt="UST-L Political Science Logo" loading="eager" decoding="async" fetchpriority="high">
+        <span>UST-L Political Science</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="officers.html">Officers</a></li>
+        <li><a href="accomplishments.html">Accomplishments</a></li>
+        <li><a href="resources.html" class="active-page">Resources</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="concern.html">Concern</a></li>
+    </ul>
+</nav>
+
+<section class="trivia-section">
+
+    <div class="trivia-box">
+
+        <div class="trivia-hero">
+            <h1>🧠 Political Science Trivia</h1>
+
+            <p>
+                Explore essential facts about Political Science, governance, democracy,
+                constitutions, international relations, and Philippine government.
+            </p>
+        </div>
+
+        <div class="trivia-stats">
+    <div>
+        <h2>11</h2>
+        <p>📚 Categories</p>
+    </div>
+
+    <div>
+        <h2>100+</h2>
+        <p>🧠 Trivia Facts</p>
+    </div>
+
+    <div>
+        <h2>100%</h2>
+        <p>🎓 Student Learning</p>
+    </div>
+</div>
+
+        <button id="startTriviaBtn" class="btn">
+         🎲 Start Exploring
+        </button>
+
+        <div class="search-container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search facts, constitutions, leaders, governments..."
+                >
+
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <div class="category-filter">
+            <button class="category active">All</button>
+            <button class="category">Political Science</button>
+            <button class="category">Governance</button>
+            <button class="category">Philippine Constitution</button>
+            <button class="category">Elections & Democracy</button>
+            <button class="category">International Relations</button>
+            <button class="category">Philippine Government</button>
+            <button class="category">Political Figures</button>
+            <button class="category">Political Trivia</button>
+            <button class="category">Human Rights</button>
+            <button class="category">Law</button>
+            <button class="category">Celebrities in Politics</button>
+        </div>
+
+        <div class="trivia-card">
+            <h2>Did you know?</h2>
+
+            <p id="triviaFact" class="trivia-fact">
+               Click "Start Exploring" to discover Political Science trivia.
+            </p>
+
+            <div id="triviaCategory" class="trivia-category">Category</div>
+
+            <div class="trivia-buttons">
+                <button id="saveFactBtn" class="btn">⭐ Save Fact</button>
+                <button id="nextFactBtn" class="btn secondary">➡ Next Fact</button>
+                <a href="saved-facts.html" class="btn secondary">📚 My Saved Facts</a>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="resources.html" class="back-btn">
+    📚 Back to Resources
+</a>
+
+</section>
+
+<script src="../political-science-trivia.js"></script>
+<script src="../script.js"></script>
+
+</body>
+</html>

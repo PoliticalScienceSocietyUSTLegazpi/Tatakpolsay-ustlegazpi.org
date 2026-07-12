@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Saved Facts</title>
+
+        <link rel="preload" as="image" href="../images/logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="../images/background1.png" fetchpriority="high">
+        <link rel="preload" as="image" href="../images/background-portrait.jpg" media="(max-width: 900px), (orientation: portrait)" fetchpriority="high">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../political-wisdom.css">
+    <link rel="stylesheet" href="../political-science-trivia.css">
+    <link rel="preload" as="image" href="../images2/political-trivia/Political-trivia-saved-facts.jpg" fetchpriority="high">
+    <link rel="prefetch" href="../images2/political-trivia/Political-trivia-saved-facts.jpg">
+</head>
+
+<body class="collection-page">
+
+<section class="quote-section">
+    <div class="hero-header collection-box">
+
+        <h1>📚 My Saved Facts</h1>
+
+        <div id="savedFactsContainer"></div>
+
+        <a class="collection-btn" href="political-science-trivia.html">
+            Back to Political Science Trivia
+        </a>
+
+    </div>
+</section>
+
+<script>
+    const savedFactsContainer = document.getElementById("savedFactsContainer");
+    const savedFacts = JSON.parse(localStorage.getItem("savedFacts")) || [];
+
+    if (savedFacts.length === 0) {
+        savedFactsContainer.innerHTML = `
+            <p class="saved-quote-text">No saved facts yet.</p>
+        `;
+    } else {
+        savedFactsContainer.innerHTML = savedFacts.map(item => `
+            <div class="saved-card">
+            <p class="saved-quote-text">"${item.fact}"</p>
+            <div class="category-badge">${item.category}</div>
+            </div>
+        `).join("");
+    }
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
