@@ -7866,3 +7866,423 @@ body.home-page {
         font-size: 27px;
     }
 }
+/* Restore compact mobile navbar in regular and Desktop site portrait modes */
+@media (orientation: portrait) and (max-width: 1100px) {
+    .home-page .navbar.home-navbar {
+        position: relative !important;
+        z-index: 7000 !important;
+        width: 100% !important;
+        height: 82px !important;
+        min-height: 82px !important;
+        padding: 14px 20px 8px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: space-between !important;
+        background: rgba(20, 7, 48, .92) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, .14) !important;
+    }
+
+    .home-page .logo.home-logo {
+        display: flex !important;
+        width: auto !important;
+        max-width: calc(100% - 60px) !important;
+        min-width: 0 !important;
+        gap: 10px !important;
+    }
+
+    .home-page .logo.home-logo img {
+        display: block !important;
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .home-page .logo.home-logo span {
+        display: flex !important;
+        gap: 4px !important;
+    }
+
+    .home-page .logo.home-logo strong {
+        max-width: 230px !important;
+        font-size: 14px !important;
+        line-height: 1.05 !important;
+    }
+
+    .home-page .logo.home-logo em {
+        font-size: 9px !important;
+        letter-spacing: 2.2px !important;
+    }
+
+    .home-page .mobile-menu-btn {
+        position: absolute !important;
+        top: 24px !important;
+        right: 21px !important;
+        z-index: 7002 !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+    }
+
+    .home-page .mobile-menu-btn span {
+        display: block !important;
+        width: 25px !important;
+        height: 3px !important;
+        margin: 0 !important;
+        border-radius: 999px !important;
+        background: #fff !important;
+    }
+
+    .home-page .nav-links {
+        position: absolute !important;
+        top: 72px !important;
+        left: 16px !important;
+        right: 16px !important;
+        z-index: 7001 !important;
+        display: none !important;
+        max-height: calc(100vh - 92px) !important;
+        overflow-y: auto !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 3px !important;
+        margin: 0 !important;
+        padding: 9px !important;
+        border: 1px solid rgba(255, 214, 10, .30) !important;
+        border-radius: 15px !important;
+        background: rgba(36, 12, 73, .98) !important;
+        box-shadow: 0 18px 42px rgba(0, 0, 0, .36) !important;
+    }
+
+    .home-page .nav-links.active {
+        display: flex !important;
+    }
+
+    .home-page .nav-links li {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .home-page .nav-links a {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 11px 13px !important;
+        border-radius: 9px !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+        text-align: left !important;
+    }
+
+    .home-page .nav-links a.active-page {
+        background: #FFD60A !important;
+        color: #3C096C !important;
+    }
+
+    .home-page .nav-links a::after {
+        display: none !important;
+    }
+}
+/* Final wide-mobile target: compact desktop composition shown in reference */
+@media (orientation: portrait) and (min-width: 721px) and (max-width: 1100px) {
+    body.home-page,
+    .home-page .home-shell {
+        min-height: 0 !important;
+        background: #241043 !important;
+    }
+
+    .home-page .home-hero {
+        height: 920px !important;
+        min-height: 920px !important;
+        max-height: 920px !important;
+        background:
+            linear-gradient(90deg, rgba(11, 4, 31, .20), rgba(11, 4, 31, .02)),
+            url("images/home-portal-bg-optimized.webp") center / cover no-repeat !important;
+    }
+
+    .home-page .navbar.home-navbar {
+        position: relative !important;
+        z-index: 6000 !important;
+        height: 96px !important;
+        min-height: 96px !important;
+        padding: 15px 28px 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        background: rgba(20, 7, 48, .28) !important;
+        border-bottom: 0 !important;
+    }
+
+    .home-page .logo.home-logo {
+        display: flex !important;
+        width: auto !important;
+        max-width: 315px !important;
+        gap: 10px !important;
+    }
+
+    .home-page .logo.home-logo img {
+        display: block !important;
+        width: 58px !important;
+        height: 58px !important;
+    }
+
+    .home-page .logo.home-logo strong {
+        max-width: 235px !important;
+        font-size: 15px !important;
+        line-height: 1.05 !important;
+    }
+
+    .home-page .logo.home-logo em {
+        font-size: 9px !important;
+        letter-spacing: 2.5px !important;
+    }
+
+    .home-page .mobile-menu-btn {
+        display: none !important;
+    }
+
+    .home-page .nav-links,
+    .home-page .nav-links.active {
+        position: static !important;
+        width: auto !important;
+        max-width: none !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        display: flex !important;
+        flex: 0 1 auto !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 20px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .home-page .nav-links li {
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .home-page .nav-links a {
+        display: block !important;
+        width: auto !important;
+        min-height: 0 !important;
+        padding: 6px 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        color: rgba(255, 255, 255, .86) !important;
+        font-size: 12px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+
+    .home-page .nav-links a.active-page {
+        background: transparent !important;
+        color: #FFD60A !important;
+    }
+
+    .home-page .nav-links a.active-page::after {
+        display: block !important;
+        bottom: -5px !important;
+        width: 100% !important;
+        height: 2px !important;
+    }
+
+    .home-page .home-map,
+    .home-page .hero-art {
+        display: none !important;
+    }
+
+    .home-page .home-hero-inner {
+        display: block !important;
+        min-height: 0 !important;
+        padding: 96px 42px 105px !important;
+    }
+
+    .home-page .home-copy {
+        width: 100% !important;
+        max-width: 520px !important;
+        padding: 0 !important;
+    }
+
+    .home-page .home-kicker {
+        margin-bottom: 13px !important;
+        font-size: 25px !important;
+    }
+
+    .home-page .home-copy h1 {
+        max-width: 510px !important;
+        font-size: 48px !important;
+        line-height: 1.14 !important;
+    }
+
+    .home-page .gold-divider {
+        width: 455px !important;
+        margin: 28px 0 !important;
+        gap: 16px !important;
+    }
+
+    .home-page .gold-divider span {
+        width: auto !important;
+        flex: 1 1 auto !important;
+    }
+
+    .home-page .home-divider-laurel {
+        width: 66px !important;
+        height: 42px !important;
+    }
+
+    .home-page .home-subtitle {
+        max-width: 455px !important;
+        margin-bottom: 30px !important;
+        font-size: 19px !important;
+        line-height: 1.55 !important;
+    }
+
+    .home-page .hero-buttons {
+        width: 520px !important;
+        max-width: 520px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        gap: 16px !important;
+    }
+
+    .home-page .hero-buttons .btn,
+    .home-page .hero-buttons .primary-btn,
+    .home-page .hero-buttons .secondary {
+        position: relative !important;
+        width: 248px !important;
+        height: 66px !important;
+        min-height: 66px !important;
+        padding: 0 48px 0 24px !important;
+        justify-content: flex-start !important;
+        border-radius: 10px !important;
+        font-size: 16px !important;
+        text-align: left !important;
+    }
+
+    .home-page .hero-buttons .btn:last-child {
+        width: 360px !important;
+    }
+
+    .home-page .hero-buttons .btn::after {
+        content: "›";
+        position: absolute;
+        right: 19px;
+        top: 50%;
+        transform: translateY(-52%);
+        font-size: 30px;
+    }
+
+    .home-page .hero-buttons .primary-btn::before {
+        content: "⚖";
+        margin-right: 11px;
+        font-size: 22px;
+    }
+
+    .home-page .hero-wave {
+        display: block !important;
+        height: 86px !important;
+        bottom: -1px !important;
+    }
+
+    .home-page .home-feature-band {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 78px 55px 72px !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 22px !important;
+        align-content: start !important;
+        background:
+            radial-gradient(circle at 12% 15%, rgba(255, 214, 10, .09), transparent 21%),
+            linear-gradient(180deg, #faf8fc, #f1ebf5) !important;
+        box-shadow: inset 0 -6px 0 #d7a72c !important;
+    }
+
+    .home-page .home-feature-band::before {
+        content: "Explore the Student Portal";
+        grid-column: 1 / -1;
+        margin: 0 0 30px !important;
+        color: #3C096C;
+        font-size: 38px !important;
+        line-height: 1.1 !important;
+        font-weight: 900 !important;
+        text-align: center !important;
+    }
+
+    .home-page .home-feature {
+        position: relative !important;
+        min-height: 185px !important;
+        display: grid !important;
+        grid-template-columns: 68px minmax(0, 1fr) !important;
+        grid-template-rows: auto auto !important;
+        column-gap: 22px !important;
+        align-content: center !important;
+        padding: 28px 25px !important;
+        border: 1px solid rgba(60, 9, 108, .08) !important;
+        border-radius: 18px !important;
+        background: rgba(255, 255, 255, .96) !important;
+        box-shadow: 0 14px 32px rgba(60, 9, 108, .11) !important;
+    }
+
+    .home-page .home-feature .feature-icon {
+        grid-row: 1 / 3 !important;
+        width: 66px !important;
+        height: 66px !important;
+        align-self: center !important;
+        font-size: 25px !important;
+    }
+
+    .home-page .home-feature strong {
+        align-self: end !important;
+        font-size: 19px !important;
+        line-height: 1.2 !important;
+    }
+
+    .home-page .home-feature small {
+        align-self: start !important;
+        margin-top: 9px !important;
+        padding-right: 24px !important;
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+    }
+
+    .home-page .home-feature::after {
+        content: "›";
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(60, 9, 108, .17);
+        border-radius: 50%;
+        color: #3C096C;
+        font-size: 25px;
+    }
+}
