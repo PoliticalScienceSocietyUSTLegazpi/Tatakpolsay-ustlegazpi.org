@@ -5291,7 +5291,7 @@ body.home-page {
     min-height: 760px;
     background:
         linear-gradient(90deg, rgba(13, 5, 36, .76) 0%, rgba(13, 5, 36, .54) 36%, rgba(13, 5, 36, .08) 68%),
-        url("images/home-portal-bg.png") center / cover no-repeat !important;
+        url("images/home-portal-bg-optimized.webp") center / cover no-repeat !important;
 }
 
 .home-hero::before,
@@ -5377,7 +5377,7 @@ body.home-page {
     .home-hero {
         background:
             linear-gradient(90deg, rgba(13, 5, 36, .82) 0%, rgba(13, 5, 36, .58) 58%, rgba(13, 5, 36, .18) 100%),
-            url("images/home-portal-bg.png") 62% center / cover no-repeat !important;
+            url("images/home-portal-bg-optimized.webp") 62% center / cover no-repeat !important;
     }
 }
 
@@ -5413,7 +5413,7 @@ body.home-page {
         min-height: 100vh !important;
         background:
             linear-gradient(180deg, rgba(10, 4, 32, .38) 0%, rgba(10, 4, 32, .18) 42%, rgba(10, 4, 32, .08) 100%),
-            url("images/home-mobile-bg.jpg") center top / cover no-repeat !important;
+            url("images/home-mobile-bg-optimized.webp") center top / cover no-repeat !important;
         overflow: hidden;
     }
 
@@ -5801,7 +5801,7 @@ body:not(.home-page) .nav-links a:hover::after {
         min-height: 100vh !important;
         background:
             linear-gradient(180deg, rgba(10, 4, 32, .28) 0%, rgba(10, 4, 32, .12) 48%, rgba(10, 4, 32, .04) 100%),
-            url("images/home-mobile-bg.jpg") center top / cover no-repeat !important;
+            url("images/home-mobile-bg-optimized.webp") center top / cover no-repeat !important;
     }
 
     .home-page .navbar.home-navbar {
@@ -6967,7 +6967,7 @@ body.gallery-lightbox-open {
         padding-bottom: 0 !important;
         background:
             linear-gradient(180deg, rgba(10, 4, 32, .30), rgba(10, 4, 32, .08)),
-            url("images/home-mobile-bg.jpg") center top / cover no-repeat !important;
+            url("images/home-mobile-bg-optimized.webp") center top / cover no-repeat !important;
     }
 
     .home-page .home-hero::before,
@@ -7138,5 +7138,113 @@ body.gallery-lightbox-open {
         padding: 0 18px !important;
         justify-content: center !important;
         font-size: 15px !important;
+    }
+}
+/* Compact portrait homepage: prevent extra-tall mobile/desktop-view rendering */
+@media (orientation: portrait) and (max-width: 1100px) {
+    .home-page .home-hero {
+        height: 820px !important;
+        min-height: 820px !important;
+        max-height: 820px !important;
+        overflow: hidden !important;
+        background:
+            linear-gradient(180deg, rgba(10, 4, 32, .24) 0%, rgba(10, 4, 32, .08) 48%, rgba(10, 4, 32, .02) 100%),
+            url("images/home-mobile-bg-optimized.webp") center bottom / cover no-repeat !important;
+    }
+
+    .home-page .navbar.home-navbar {
+        position: relative !important;
+        top: 0 !important;
+        z-index: 6000 !important;
+        width: 100% !important;
+        min-height: 76px !important;
+        height: 76px !important;
+        padding: 13px 20px 7px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .home-page .logo.home-logo {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .home-page .logo.home-logo img {
+        display: block !important;
+        width: 46px !important;
+        height: 46px !important;
+    }
+
+    .home-page .logo.home-logo span {
+        display: flex !important;
+    }
+
+    .home-page .mobile-menu-btn {
+        top: 21px !important;
+        right: 21px !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .home-page .home-hero-inner {
+        padding: 20px 24px 28px !important;
+    }
+
+    .home-page .home-copy {
+        max-width: 430px !important;
+    }
+
+    .home-page .home-kicker {
+        font-size: 18px !important;
+        margin-bottom: 7px !important;
+    }
+
+    .home-page .home-copy h1 {
+        max-width: 390px !important;
+        font-size: clamp(32px, 8vw, 43px) !important;
+        line-height: 1.1 !important;
+    }
+
+    .home-page .gold-divider {
+        max-width: 365px !important;
+        margin: 16px 0 !important;
+    }
+
+    .home-page .home-subtitle {
+        max-width: 390px !important;
+        margin-bottom: 18px !important;
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+    }
+
+    .home-page .hero-buttons {
+        max-width: 365px !important;
+        gap: 9px !important;
+    }
+
+    .home-page .hero-buttons .btn,
+    .home-page .hero-buttons .primary-btn,
+    .home-page .hero-buttons .secondary {
+        height: 44px !important;
+        min-height: 44px !important;
+        font-size: 13px !important;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 430px) {
+    .home-page .home-hero {
+        height: 760px !important;
+        min-height: 760px !important;
+        max-height: 760px !important;
+    }
+
+    .home-page .logo.home-logo strong {
+        font-size: 12px !important;
+    }
+
+    .home-page .logo.home-logo em {
+        font-size: 8px !important;
     }
 }
