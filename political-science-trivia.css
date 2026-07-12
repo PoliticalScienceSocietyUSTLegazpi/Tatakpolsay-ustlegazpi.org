@@ -1,4 +1,4 @@
-/* ===========================
+﻿/* ===========================
    POLITICAL SCIENCE TRIVIA
 =========================== */
 
@@ -245,7 +245,7 @@ body.collection-page {
     min-height: 100vh;
     background-image:
         linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-        url("../images2/political-trivia/Political-trivia-saved-facts.jpg") !important;
+        url("images2/political-trivia/Political-trivia-saved-facts.jpg") !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
