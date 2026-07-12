@@ -4,7 +4,7 @@ function folderImages(folder, files) {
     return files.map(function(file) {
         const folderPath = galleryFolder + "/" + encodeURIComponent(folder) + "/";
         return {
-            thumbnail: folderPath + ".gallery-thumbnails/" + encodeURIComponent(file + ".webp"),
+            thumbnail: folderPath + "gallery-thumbnails/" + encodeURIComponent(file + ".webp"),
             full: folderPath + encodeURIComponent(file)
         };
     });
