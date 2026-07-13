@@ -5408,6 +5408,10 @@ body.home-page {
     display: none;
 }
 
+.home-feature-divider {
+    display: none;
+}
+
 /* Homepage mobile layout based on the supplied mockup */
 @media (max-width: 720px) {
     body.home-page {
@@ -7174,7 +7178,7 @@ body.gallery-lightbox-open {
     .home-page .home-feature-title {
         display: block !important;
         grid-column: 1 / -1 !important;
-        margin: 0 0 24px !important;
+        margin: 0 !important;
         color: #2d0c60 !important;
         font-size: 38px !important;
         line-height: 1.2 !important;
@@ -7183,13 +7187,34 @@ body.gallery-lightbox-open {
     }
 
     .home-page .home-feature-title::after {
-        content: "";
-        display: block;
-        width: 110px;
-        height: 4px;
-        margin: 20px auto 0;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #e2ad24, #ffd95a, #e2ad24);
+        content: none !important;
+        display: none !important;
+    }
+
+    .home-page .home-feature-divider {
+        display: flex !important;
+        grid-column: 1 / -1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 20px !important;
+        margin: -4px 0 18px !important;
+    }
+
+    .home-page .home-feature-divider span {
+        width: 135px !important;
+        height: 4px !important;
+        flex: 0 0 auto !important;
+        border-radius: 999px !important;
+        background: linear-gradient(90deg, #d99f16, #ffd95a, #d99f16) !important;
+    }
+
+    .home-page .home-feature-divider img {
+        display: block !important;
+        width: 65px !important;
+        height: 42px !important;
+        flex: 0 0 auto !important;
+        object-fit: contain !important;
+        filter: drop-shadow(0 3px 5px rgba(189, 132, 12, .2)) !important;
     }
 
     .home-page .home-feature {
