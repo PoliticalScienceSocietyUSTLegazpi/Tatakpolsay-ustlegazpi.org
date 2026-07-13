@@ -7328,3 +7328,25 @@ body.gallery-lightbox-open {
         font-size: 19px !important;
     }
 }
+
+/* Inner pages: avoid Android Chrome's fixed-layer repaint gap during fast scrolling. */
+@media (orientation: portrait) and (min-width: 721px) {
+    body.page-background,
+    body.profile-background {
+        min-height: 100% !important;
+        background-color: #68419a !important;
+        background-image:
+            linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
+            url("images/background-portrait.jpg") !important;
+        background-position: center top !important;
+        background-size: 100% auto !important;
+        background-repeat: repeat-y !important;
+        background-attachment: scroll !important;
+    }
+
+    body.page-background::before,
+    body.profile-background::before {
+        display: none !important;
+        content: none !important;
+    }
+}
