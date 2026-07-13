@@ -6977,8 +6977,8 @@ body.gallery-lightbox-open {
     body.officers-page .officer-card img {
         display: block !important;
         width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
+        height: 420px !important;
+        max-height: 420px !important;
         padding: 0 !important;
         border-radius: 0 !important;
         object-fit: cover !important;
