@@ -7158,7 +7158,7 @@ body.gallery-lightbox-open {
     body.home-page,
     .home-page .home-shell {
         min-height: 0 !important;
-        background: #f7f3f8 !important;
+        background: #210b46 !important;
     }
 
     .home-page .home-feature-band {
@@ -7258,5 +7258,16 @@ body.gallery-lightbox-open {
         font-size: 16px !important;
         line-height: 1.5 !important;
         text-align: left !important;
+    }
+
+    .home-page .home-feature-band::after {
+        content: "" !important;
+        display: block !important;
+        grid-column: 1 / -1 !important;
+        height: 180px !important;
+        margin: 46px -58px -92px !important;
+        border-top: 7px solid #d6a51f !important;
+        background: #210b46 !important;
+        box-shadow: inset 0 2px 0 rgba(255, 224, 98, .35) !important;
     }
 }
