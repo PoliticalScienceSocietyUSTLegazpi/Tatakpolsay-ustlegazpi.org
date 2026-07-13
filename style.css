@@ -5404,6 +5404,10 @@ body.home-page {
     }
 }
 
+.home-feature-title {
+    display: none;
+}
+
 /* Homepage mobile layout based on the supplied mockup */
 @media (max-width: 720px) {
     body.home-page {
@@ -7142,5 +7146,92 @@ body.gallery-lightbox-open {
     body.about-page .about-values-card li {
         font-size: 20px !important;
         line-height: 1.75 !important;
+    }
+}
+
+/* Homepage only: phone "Desktop site" portrait layout matching the reference. */
+@media (orientation: portrait) and (min-width: 721px) {
+    body.home-page,
+    .home-page .home-shell {
+        min-height: 0 !important;
+        background: #f7f3f8 !important;
+    }
+
+    .home-page .home-feature-band {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 650px !important;
+        margin: -58px auto 0 !important;
+        padding: 105px 58px 92px !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 26px !important;
+        background:
+            radial-gradient(circle at 12% 82%, rgba(255, 222, 131, .15), transparent 30%),
+            linear-gradient(180deg, #fffefe 0%, #f8f1fa 100%) !important;
+    }
+
+    .home-page .home-feature-title {
+        display: block !important;
+        grid-column: 1 / -1 !important;
+        margin: 0 0 24px !important;
+        color: #2d0c60 !important;
+        font-size: 38px !important;
+        line-height: 1.2 !important;
+        font-weight: 900 !important;
+        text-align: center !important;
+    }
+
+    .home-page .home-feature-title::after {
+        content: "";
+        display: block;
+        width: 110px;
+        height: 4px;
+        margin: 20px auto 0;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #e2ad24, #ffd95a, #e2ad24);
+    }
+
+    .home-page .home-feature {
+        min-height: 175px !important;
+        display: grid !important;
+        grid-template-columns: 74px minmax(0, 1fr) !important;
+        grid-template-rows: auto auto !important;
+        column-gap: 24px !important;
+        align-content: center !important;
+        align-items: center !important;
+        padding: 28px 30px !important;
+        background: #ffffff !important;
+        border: none !important;
+        border-radius: 17px !important;
+        box-shadow: 0 16px 34px rgba(50, 22, 78, .13) !important;
+        text-align: left !important;
+    }
+
+    .home-page .home-feature .feature-icon {
+        grid-row: 1 / span 2 !important;
+        width: 68px !important;
+        height: 68px !important;
+        font-size: 27px !important;
+        border-radius: 50% !important;
+        background: #2a0967 !important;
+        box-shadow: 0 10px 22px rgba(42, 9, 103, .24) !important;
+    }
+
+    .home-page .home-feature strong {
+        align-self: end !important;
+        margin: 0 0 10px !important;
+        color: #28104f !important;
+        font-size: 21px !important;
+        line-height: 1.2 !important;
+        text-align: left !important;
+    }
+
+    .home-page .home-feature small {
+        align-self: start !important;
+        color: #554b60 !important;
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        text-align: left !important;
     }
 }
