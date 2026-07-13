@@ -7329,24 +7329,38 @@ body.gallery-lightbox-open {
     }
 }
 
-/* Inner pages: avoid Android Chrome's fixed-layer repaint gap during fast scrolling. */
+/* Inner pages: one fixed portrait background with a purple repaint fallback. */
 @media (orientation: portrait) and (min-width: 721px) {
+    html:has(body.page-background),
+    html:has(body.profile-background) {
+        background: #68419a !important;
+    }
+
     body.page-background,
     body.profile-background {
         min-height: 100% !important;
+        background-color: #68419a !important;
+        background-image: none !important;
+        background-attachment: initial !important;
+    }
+
+    body.page-background::before,
+    body.profile-background::before {
+        display: block !important;
+        content: "" !important;
+        position: fixed !important;
+        inset: -2px !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
         background-color: #68419a !important;
         background-image:
             linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
             url("images/background-portrait.jpg") !important;
         background-position: center top !important;
-        background-size: 100% auto !important;
-        background-repeat: repeat-y !important;
-        background-attachment: scroll !important;
-    }
-
-    body.page-background::before,
-    body.profile-background::before {
-        display: none !important;
-        content: none !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        transform: translate3d(0, 0, 0) !important;
+        backface-visibility: hidden !important;
+        will-change: transform !important;
     }
 }
