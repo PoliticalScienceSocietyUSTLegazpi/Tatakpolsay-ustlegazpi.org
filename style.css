@@ -7170,9 +7170,22 @@ body.gallery-lightbox-open {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 26px !important;
-        background:
-            radial-gradient(circle at 12% 82%, rgba(255, 222, 131, .15), transparent 30%),
-            linear-gradient(180deg, #fffefe 0%, #f8f1fa 100%) !important;
+        background: #ffffff !important;
+        border-top: none !important;
+        outline: none !important;
+    }
+
+    .home-page .hero-wave {
+        bottom: -2px !important;
+        border: none !important;
+        outline: none !important;
+        background: transparent !important;
+    }
+
+    .home-page .hero-wave path {
+        fill: #ffffff !important;
+        stroke: #ffffff !important;
+        stroke-width: 2px !important;
     }
 
     .home-page .home-feature-title {
@@ -7268,6 +7281,12 @@ body.gallery-lightbox-open {
         margin: 46px -58px -92px !important;
         border-top: 7px solid #d6a51f !important;
         background: #210b46 !important;
-        box-shadow: inset 0 2px 0 rgba(255, 224, 98, .35) !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        border-left: none !important;
+        outline: none !important;
+        box-shadow:
+            inset 0 2px 0 rgba(255, 224, 98, .35),
+            0 500px 0 #210b46 !important;
     }
 }
