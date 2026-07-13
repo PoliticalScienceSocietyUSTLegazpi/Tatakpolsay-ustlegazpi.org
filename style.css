@@ -7040,4 +7040,25 @@ body.gallery-lightbox-open {
     body.officers-page .officer-card {
         border: none !important;
     }
+
+    body.resources-page .resource-hub-card,
+    body.resources-page .resource-hub-card h3,
+    body.resources-page .resource-hub-card p,
+    body.resources-page .resource-hub-card span {
+        text-align: left !important;
+    }
+
+    body.resources-page .resource-hub-card h3,
+    body.resources-page .resource-hub-card p,
+    body.resources-page .resource-hub-card span {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    body.resources-page .resource-icon {
+        display: block !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
 }
