@@ -4123,7 +4123,6 @@ body.profile-background {
     font-size:2rem;
 }
 
-
 .divider-leaf{
     width:78px;
     height:46px;
@@ -7293,5 +7292,39 @@ body.gallery-lightbox-open {
         border-left: none !important;
         outline: none !important;
         box-shadow: inset 0 2px 0 rgba(255, 224, 98, .35) !important;
+    }
+}
+
+/* Resources intro only: wide desktop-style card on phone Desktop-site portrait view. */
+@media (orientation: portrait) and (min-width: 721px) {
+    body.resources-page .resources-intro-card {
+        width: calc(100% - 100px) !important;
+        max-width: 1050px !important;
+        padding: 58px 64px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-radius: 28px !important;
+    }
+
+    body.resources-page .resources-intro-card h2 {
+        font-size: 42px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 24px !important;
+        text-align: center !important;
+    }
+
+    body.resources-page .resources-intro-card p {
+        max-width: 900px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: 22px !important;
+        line-height: 1.65 !important;
+        text-align: center !important;
+    }
+
+    body.resources-page .resources-reference-btn {
+        margin-top: 28px !important;
+        padding: 18px 34px !important;
+        font-size: 19px !important;
     }
 }
