@@ -7277,7 +7277,8 @@ body.gallery-lightbox-open {
         content: "" !important;
         display: block !important;
         grid-column: 1 / -1 !important;
-        height: 180px !important;
+        height: 100vh !important;
+        min-height: 600px !important;
         margin: 46px -58px -92px !important;
         border-top: 7px solid #d6a51f !important;
         background: #210b46 !important;
@@ -7285,8 +7286,6 @@ body.gallery-lightbox-open {
         border-bottom: none !important;
         border-left: none !important;
         outline: none !important;
-        box-shadow:
-            inset 0 2px 0 rgba(255, 224, 98, .35),
-            0 500px 0 #210b46 !important;
+        box-shadow: inset 0 2px 0 rgba(255, 224, 98, .35) !important;
     }
 }
