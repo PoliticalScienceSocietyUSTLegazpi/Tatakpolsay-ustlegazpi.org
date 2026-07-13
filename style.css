@@ -7364,3 +7364,322 @@ body.gallery-lightbox-open {
         will-change: transform !important;
     }
 }
+
+/* President profile redesign — intentionally scoped to this page only. */
+body.president-profile-page {
+    color: #281044;
+}
+
+body.president-profile-page .president-profile {
+    width: min(1220px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 150px 0 80px;
+}
+
+body.president-profile-page .president-back-button {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 22px;
+    padding: 12px 20px;
+    color: #3c096c;
+    background: #ffd60a;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(38, 10, 67, .18);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+body.president-profile-page .president-profile-card {
+    overflow: hidden;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(255, 214, 10, .62);
+    border-top: 8px solid #ffd60a;
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(34, 7, 66, .25);
+}
+
+body.president-profile-page .president-profile-hero {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 54px;
+    align-items: center;
+    padding: 54px;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(255, 214, 10, .20), transparent 28%),
+        linear-gradient(135deg, #ffffff 0%, #fbf7ff 58%, #f1e5fb 100%);
+}
+
+body.president-profile-page .president-photo-wrap {
+    position: relative;
+    padding: 10px;
+    background: linear-gradient(145deg, #ffd60a, #fff2a6 48%, #5a189a);
+    border-radius: 26px;
+    box-shadow: 0 24px 50px rgba(60, 9, 108, .24);
+}
+
+body.president-profile-page .president-photo-wrap img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    object-position: center top;
+    border: 0;
+    border-radius: 18px;
+    margin: 0;
+}
+
+body.president-profile-page .president-role {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    color: #3c096c;
+    background: #ffd60a;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+body.president-profile-page .president-profile-intro h1 {
+    max-width: 700px;
+    margin: 0 0 12px;
+    color: #3c096c;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -.035em;
+}
+
+body.president-profile-page .president-lead {
+    max-width: 720px;
+    margin: 0 0 32px;
+    color: #51445c;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+body.president-profile-page .president-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+body.president-profile-page .president-fact {
+    min-height: 94px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid rgba(60, 9, 108, .12);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(60, 9, 108, .07);
+}
+
+body.president-profile-page .president-fact span,
+body.president-profile-page .president-section-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #7a6687;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+body.president-profile-page .president-fact strong {
+    color: #3c096c;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+body.president-profile-page .president-quote-card {
+    padding: 34px 54px;
+    color: #ffffff;
+    background: linear-gradient(115deg, #2b0754, #5a189a);
+    text-align: center;
+}
+
+body.president-profile-page .president-quote-card .president-section-label {
+    color: #ffd60a;
+}
+
+body.president-profile-page .president-quote-card blockquote {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-style: italic;
+    line-height: 1.35;
+}
+
+body.president-profile-page .president-interest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    padding: 46px 54px 24px;
+}
+
+body.president-profile-page .president-interest-card {
+    position: relative;
+    min-height: 310px;
+    padding: 36px;
+    background: #ffffff;
+    border: 1px solid rgba(60, 9, 108, .12);
+    border-radius: 22px;
+    box-shadow: 0 18px 42px rgba(60, 9, 108, .10);
+}
+
+body.president-profile-page .president-card-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
+    color: #3c096c;
+    background: #ffd60a;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+body.president-profile-page .president-interest-card h2 {
+    margin: 0 0 20px;
+    color: #3c096c;
+    font-size: 28px;
+}
+
+body.president-profile-page .president-interest-card ul {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.president-profile-page .president-interest-card li {
+    position: relative;
+    padding-left: 24px;
+    color: #51445c;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+body.president-profile-page .president-interest-card li::before {
+    content: "";
+    position: absolute;
+    top: .65em;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    background: #ffd60a;
+    border: 2px solid #5a189a;
+    border-radius: 50%;
+}
+
+body.president-profile-page .president-political-quote {
+    margin: 0 54px 54px;
+    padding: 34px 40px;
+    background: #f8f2fc;
+    border-left: 7px solid #ffd60a;
+    border-radius: 18px;
+}
+
+body.president-profile-page .president-political-quote blockquote {
+    margin: 0 0 12px;
+    color: #3c096c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-style: italic;
+    line-height: 1.55;
+}
+
+body.president-profile-page .president-political-quote cite {
+    color: #725e80;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 800;
+}
+
+@media (max-width: 860px) {
+    body.president-profile-page .president-profile {
+        width: min(100% - 28px, 680px);
+        padding: 112px 0 44px;
+    }
+
+    body.president-profile-page .president-profile-hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 28px;
+    }
+
+    body.president-profile-page .president-photo-wrap {
+        width: min(100%, 390px);
+        margin: 0 auto;
+    }
+
+    body.president-profile-page .president-photo-wrap img {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+    body.president-profile-page .president-profile-intro {
+        text-align: center;
+    }
+
+    body.president-profile-page .president-profile-intro h1,
+    body.president-profile-page .president-lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body.president-profile-page .president-facts,
+    body.president-profile-page .president-interest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.president-profile-page .president-quote-card {
+        padding: 30px 24px;
+    }
+
+    body.president-profile-page .president-interest-grid {
+        padding: 28px 22px 18px;
+    }
+
+    body.president-profile-page .president-interest-card {
+        min-height: 0;
+        padding: 28px;
+        text-align: left;
+    }
+
+    body.president-profile-page .president-political-quote {
+        margin: 0 22px 28px;
+        padding: 28px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 520px) {
+    body.president-profile-page .president-profile {
+        width: calc(100% - 20px);
+        padding-top: 96px;
+    }
+
+    body.president-profile-page .president-profile-card {
+        border-radius: 22px;
+    }
+
+    body.president-profile-page .president-profile-hero {
+        padding: 20px;
+    }
+
+    body.president-profile-page .president-profile-intro h1 {
+        font-size: 34px;
+    }
+
+    body.president-profile-page .president-facts {
+        gap: 10px;
+    }
+
+    body.president-profile-page .president-fact {
+        min-height: 0;
+        padding: 15px;
+    }
+}
