@@ -4123,6 +4123,7 @@ body.profile-background {
     font-size:2rem;
 }
 
+
 .divider-leaf{
     width:78px;
     height:46px;
@@ -7017,5 +7018,26 @@ body.gallery-lightbox-open {
         color: #3C096C !important;
         font-weight: 800 !important;
         text-align: center !important;
+    }
+}
+
+/* Mobile resources and officers must match their opaque desktop cards. */
+@media (max-width: 720px) {
+    body.resources-page .resources-intro-card,
+    body.resources-page .resource-hub-card,
+    body.officers-page .officer-card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        opacity: 1 !important;
+        border-color: rgba(255, 214, 10, .38) !important;
+        box-shadow: 0 16px 35px rgba(0, 0, 0, .16) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        mix-blend-mode: normal !important;
+    }
+
+    body.officers-page .officer-card {
+        border: none !important;
     }
 }
