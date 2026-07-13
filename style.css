@@ -7021,8 +7021,8 @@ body.gallery-lightbox-open {
     }
 }
 
-/* Mobile resources and officers must match their opaque desktop cards. */
-@media (max-width: 720px) {
+/* Normal mobile and phone "Desktop site" portrait view: keep desktop cards opaque. */
+@media (max-width: 900px), (orientation: portrait) {
     body.resources-page .resources-intro-card,
     body.resources-page .resource-hub-card,
     body.officers-page .officer-card {
