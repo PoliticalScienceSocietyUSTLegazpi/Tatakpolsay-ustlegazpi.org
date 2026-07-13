@@ -7155,10 +7155,14 @@ body.gallery-lightbox-open {
 
 /* Homepage only: phone "Desktop site" portrait layout matching the reference. */
 @media (orientation: portrait) and (min-width: 721px) {
-    body.home-page,
+    body.home-page {
+        min-height: 0 !important;
+        background: #16072f url("images/home-feature-footer.jpg") center bottom / 100% auto no-repeat !important;
+    }
+
     .home-page .home-shell {
         min-height: 0 !important;
-        background: #ffffff !important;
+        background: transparent !important;
     }
 
     .home-page .home-feature-band {
