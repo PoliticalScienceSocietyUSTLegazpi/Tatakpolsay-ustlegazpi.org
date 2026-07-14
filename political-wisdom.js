@@ -8,20 +8,20 @@ const backgrounds = [
     "../images/backgrounds/wisdom3.png"
 ];
 
-backgrounds.forEach(src => {
+const resolvedBackgrounds = backgrounds.map(src =>
+    new URL(src, document.baseURI).href
+);
+
+resolvedBackgrounds.forEach(src => {
     const img = new Image();
     img.src = src;
 });
 
-const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+const randomBg = resolvedBackgrounds[Math.floor(Math.random() * resolvedBackgrounds.length)];
 
 document.body.style.setProperty(
-    "background",
-    `
-    linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-    url('${randomBg}') center/cover fixed no-repeat
-    `,
-    "important"
+    "--wisdom-bg",
+    `url("${randomBg}")`
 );
 
 // ===================================

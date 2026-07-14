@@ -3,20 +3,24 @@
 // ===========================
 
 const triviaBackgrounds = [
-    "images2/political-trivia/Political-trivia1.jpg",
-    "images2/political-trivia/Political-trivia2.jpg",
-    "images2/political-trivia/Political-trivia3.jpg"
+    "../images2/political-trivia/Political-trivia1.jpg",
+    "../images2/political-trivia/Political-trivia2.jpg",
+    "../images2/political-trivia/Political-trivia3.jpg"
 ];
 
+const resolvedTriviaBackgrounds = triviaBackgrounds.map(src =>
+    new URL(src, document.baseURI).href
+);
+
 // Preload images
-triviaBackgrounds.forEach(src => {
+resolvedTriviaBackgrounds.forEach(src => {
     const img = new Image();
     img.src = src;
 });
 
 // Random background
 const randomTriviaBg =
-    triviaBackgrounds[Math.floor(Math.random() * triviaBackgrounds.length)];
+    resolvedTriviaBackgrounds[Math.floor(Math.random() * resolvedTriviaBackgrounds.length)];
 
 document.body.style.setProperty(
     "--trivia-bg",
