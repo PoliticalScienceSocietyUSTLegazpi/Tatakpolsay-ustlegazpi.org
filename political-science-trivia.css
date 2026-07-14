@@ -600,3 +600,47 @@ body.collection-page .category-badge {
     color: #3C096C;
     transform: translateY(-3px);
 }
+
+/* iPad/tablet fixed full-screen Trivia and saved-facts backgrounds. */
+@media (min-width: 768px) and (max-width: 1500px) {
+    html:has(body.trivia-page),
+    html:has(body.collection-page) {
+        min-height: 100%;
+        background: #111 !important;
+    }
+
+    body.trivia-page,
+    body.collection-page {
+        min-height: 100vh;
+        background: #111 !important;
+        background-image: none !important;
+        isolation: isolate;
+    }
+
+    body.trivia-page::before,
+    body.collection-page::before {
+        content: "";
+        position: fixed;
+        inset: -3px;
+        z-index: -1;
+        pointer-events: none;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    body.trivia-page::before {
+        background-image:
+            linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
+            var(--trivia-bg, url("images2/political-trivia/Political-trivia1.jpg"));
+    }
+
+    body.collection-page::before {
+        background-image:
+            linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
+            url("images2/political-trivia/Political-trivia-saved-facts.jpg");
+    }
+}

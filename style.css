@@ -7683,3 +7683,53 @@ body.president-profile-page .president-political-quote cite {
         padding: 15px;
     }
 }
+
+/* iPad/tablet: one full-screen background that remains fixed while content scrolls. */
+@media (min-width: 768px) and (max-width: 1500px) {
+    html:has(body.page-background),
+    html:has(body.profile-background) {
+        min-height: 100%;
+        background: #68419a !important;
+    }
+
+    body.page-background,
+    body.profile-background {
+        min-height: 100vh !important;
+        background: #68419a !important;
+        background-image: none !important;
+        background-attachment: initial !important;
+        isolation: isolate;
+    }
+
+    body.page-background::before,
+    body.profile-background::before {
+        display: block !important;
+        content: "" !important;
+        position: fixed !important;
+        inset: -3px !important;
+        width: auto !important;
+        height: auto !important;
+        z-index: -1 !important;
+        pointer-events: none !important;
+        background-color: #68419a !important;
+        background-image:
+            linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
+            url("images/background1.png") !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        transform: translate3d(0, 0, 0) !important;
+        backface-visibility: hidden !important;
+        will-change: transform !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1500px) and (orientation: portrait) {
+    body.page-background::before,
+    body.profile-background::before {
+        background-image:
+            linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
+            url("images/background-portrait.jpg") !important;
+        background-position: center top !important;
+    }
+}

@@ -12,7 +12,7 @@ body {
 body.wisdom-page {
     background:
         linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-        url("../images/backgrounds/wisdom1.png") center/cover fixed no-repeat !important;
+        var(--wisdom-bg, url("images/backgrounds/wisdom1.png")) center/cover fixed no-repeat !important;
 }
 
 /* ===========================
@@ -675,5 +675,33 @@ body.wisdom-page {
 
     #author {
         font-size: 24px;
+    }
+}
+
+/* iPad/tablet fixed full-screen Political Wisdom background. */
+@media (min-width: 768px) and (max-width: 1500px) {
+    html:has(body.wisdom-page) {
+        min-height: 100%;
+        background: #111 !important;
+    }
+
+    body.wisdom-page {
+        min-height: 100vh;
+        background: #111 !important;
+        isolation: isolate;
+    }
+
+    body.wisdom-page::before {
+        content: "";
+        position: fixed;
+        inset: -3px;
+        z-index: -1;
+        pointer-events: none;
+        background:
+            linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
+            var(--wisdom-bg, url("images/backgrounds/wisdom1.png")) center / cover no-repeat;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        will-change: transform;
     }
 }
