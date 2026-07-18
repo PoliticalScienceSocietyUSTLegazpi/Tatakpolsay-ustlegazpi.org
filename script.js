@@ -252,4 +252,192 @@ document.querySelectorAll("img").forEach(img => {
     }
 });
 
+/* Use the Auditor's exact profile markup for every populated officer page. */
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+
+    if (!body.classList.contains("officer-uniform-page")) {
+        return;
+    }
+
+    const escapeProfileText = (value = "") => String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    const cleanProfileText = (value = "") => String(value)
+        .replace(/\s+/g, " ")
+        .trim();
+
+    const listMarkup = (items) => items
+        .map(item => `<li>${escapeProfileText(cleanProfileText(item))}</li>`)
+        .join("");
+
+    const splitQuote = (rawValue) => {
+        const raw = cleanProfileText(rawValue);
+        const match = raw.match(/^(.*?)(?:â€”|—)\s*([^—]+)$/);
+
+        if (!match) {
+            return { quote: raw, author: "" };
+        }
+
+        return {
+            quote: cleanProfileText(match[1]),
+            author: cleanProfileText(match[2])
+        };
+    };
+
+    const renderExactAuditorProfile = (data) => {
+        const main = document.querySelector("main.profile-container, section.profile-container");
+
+        if (!main || !data.imageSrc || !data.name || !data.role) {
+            return;
+        }
+
+        body.className = "profile-background auditor-profile-page";
+        main.className = "profile-container auditor-profile";
+
+        const details = data.details.length ? data.details : [
+            { label: "Achievements", title: "Standards of Excellence", items: [] },
+            { label: "Contributions", title: "Service in Action", items: [] }
+        ];
+
+        while (details.length < 2) {
+            details.push({ label: "Service", title: "Leadership in Action", items: [] });
+        }
+
+        main.innerHTML = `
+            <a href="../officers.html" class="back-button auditor-back-button">&larr; Back to Officers</a>
+
+            <article class="auditor-profile-card">
+                <header class="auditor-hero">
+                    <div class="auditor-portrait-panel">
+                        <span class="auditor-image-frame" aria-hidden="true"></span>
+                        <img src="${escapeProfileText(data.imageSrc)}" alt="${escapeProfileText(data.name)}, ${escapeProfileText(data.role)}" width="1400" height="2100" loading="eager" decoding="async" fetchpriority="high">
+                        <span class="auditor-photo-caption">Integrity &bull; Leadership &bull; Service</span>
+                    </div>
+
+                    <div class="auditor-intro">
+                        <div class="auditor-role-row">
+                            <span class="auditor-role">${escapeProfileText(data.roleLabel || `PSS ${data.role}`)}</span>
+                            <span class="auditor-mark" aria-hidden="true">&#10003;</span>
+                        </div>
+                        <p class="auditor-eyebrow">Political Science Society</p>
+                        <h1>${escapeProfileText(data.name)}</h1>
+                        <p class="auditor-lead">Serving the Political Science community through responsible leadership and meaningful student participation.</p>
+
+                        <div class="auditor-facts" aria-label="Profile details">
+                            <div class="auditor-fact">
+                                <span>Birthday</span>
+                                <strong>${escapeProfileText(data.birthday)}</strong>
+                            </div>
+                            <div class="auditor-fact">
+                                <span>Zodiac Sign</span>
+                                <strong>${escapeProfileText(data.zodiac)}</strong>
+                            </div>
+                            <div class="auditor-fact">
+                                <span>Year Level</span>
+                                <strong>${escapeProfileText(data.yearLevel)}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="auditor-motto">
+                    <div class="auditor-section-icon" aria-hidden="true">&#9670;</div>
+                    <div>
+                        <span class="auditor-section-label">Motto</span>
+                        <blockquote>${escapeProfileText(data.motto)}</blockquote>
+                    </div>
+                </section>
+
+                <div class="auditor-detail-grid">
+                    <section class="auditor-detail-card">
+                        <span class="auditor-card-index">01</span>
+                        <span class="auditor-section-label">${escapeProfileText(details[0].label)}</span>
+                        <h2>${escapeProfileText(details[0].title)}</h2>
+                        <ul>${listMarkup(details[0].items)}</ul>
+                    </section>
+
+                    <section class="auditor-detail-card auditor-detail-card-gold">
+                        <span class="auditor-card-index">02</span>
+                        <span class="auditor-section-label">${escapeProfileText(details[1].label)}</span>
+                        <h2>${escapeProfileText(details[1].title)}</h2>
+                        <ul>${listMarkup(details[1].items)}</ul>
+                    </section>
+                </div>
+
+                <section class="auditor-quote">
+                    <span class="auditor-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <div>
+                        <span class="auditor-section-label">Favorite Political Quote</span>
+                        <blockquote>${escapeProfileText(data.quote)}</blockquote>
+                        ${data.author ? `<cite>&mdash; ${escapeProfileText(data.author)}</cite>` : ""}
+                    </div>
+                </section>
+            </article>`;
+    };
+
+    const standardCard = document.querySelector(".profile-card");
+
+    if (standardCard) {
+        const directImage = standardCard.querySelector(":scope > img");
+        const infoValues = [...standardCard.querySelectorAll(".info-box p")]
+            .map(item => cleanProfileText(item.textContent));
+        const contentSections = [...standardCard.children]
+            .filter(item => item.classList.contains("section"));
+        const motto = cleanProfileText(contentSections[0]?.querySelector("p")?.textContent || "");
+        const politicalQuote = splitQuote(contentSections[1]?.querySelector("p")?.textContent || "");
+        const achievementItems = [...(contentSections[2]?.querySelectorAll("li") || [])]
+            .map(item => item.textContent);
+        const contributionItems = [...(contentSections[3]?.querySelectorAll("li") || [])]
+            .map(item => item.textContent);
+
+        renderExactAuditorProfile({
+            imageSrc: directImage?.getAttribute("src") || "",
+            name: cleanProfileText(standardCard.querySelector(":scope > h1")?.textContent || ""),
+            role: cleanProfileText(standardCard.querySelector(":scope > h2")?.textContent || ""),
+            birthday: infoValues[0] || "Not provided",
+            zodiac: infoValues[1] || "Not provided",
+            yearLevel: infoValues[2] || "Not provided",
+            motto,
+            quote: politicalQuote.quote,
+            author: politicalQuote.author,
+            details: [
+                { label: "Achievements", title: "Standards of Excellence", items: achievementItems },
+                { label: "Contributions", title: "Service in Action", items: contributionItems }
+            ]
+        });
+        return;
+    }
+
+    const presidentCard = document.querySelector(".president-profile-card");
+
+    if (presidentCard) {
+        const factValues = [...presidentCard.querySelectorAll(".president-fact strong")]
+            .map(item => cleanProfileText(item.textContent));
+        const interestCards = [...presidentCard.querySelectorAll(".president-interest-card")];
+
+        renderExactAuditorProfile({
+            imageSrc: presidentCard.querySelector(".president-photo-wrap img")?.getAttribute("src") || "",
+            name: cleanProfileText(presidentCard.querySelector(".president-profile-intro h1")?.textContent || ""),
+            role: "President",
+            roleLabel: cleanProfileText(presidentCard.querySelector(".president-role")?.textContent || "PSS President"),
+            birthday: factValues[0] || "Not provided",
+            zodiac: factValues[1] || "Not provided",
+            yearLevel: factValues[2] || "Not provided",
+            motto: cleanProfileText(presidentCard.querySelector(".president-quote-card blockquote")?.textContent || ""),
+            quote: cleanProfileText(presidentCard.querySelector(".president-political-quote blockquote")?.textContent || ""),
+            author: cleanProfileText(presidentCard.querySelector(".president-political-quote cite")?.textContent || "").replace(/^(?:â€”|—)\s*/, ""),
+            details: interestCards.slice(0, 2).map((card, index) => ({
+                label: cleanProfileText(card.querySelector("h2")?.textContent || (index ? "Political Interests" : "Areas of Interest")),
+                title: index ? "Political Interests" : "Areas of Interest",
+                items: [...card.querySelectorAll("li")].map(item => item.textContent)
+            }))
+        });
+    }
+});
+
 });

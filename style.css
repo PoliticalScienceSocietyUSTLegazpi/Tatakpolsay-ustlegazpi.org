@@ -1988,6 +1988,15 @@ body.profile-background {
     background-attachment: fixed !important;
 }
 
+
+/* Faster backgrounds for the officer directory and profile pages. */
+body.officers-page,
+body.profile-background {
+    background-image:
+        linear-gradient(rgba(60,9,108,.12), rgba(60,9,108,.12)),
+        url("images/background1-optimized.webp?v=1") !important;
+}
+
 /* Laptop */
 @media (max-width: 1200px) {
     .navbar {
@@ -4121,6 +4130,906 @@ body.profile-background {
 .hero-divider{
     color:#e97b2c;
     font-size:2rem;
+}
+
+/* ================================================================
+   Auditor profile — integrity ledger design (scoped to this page)
+   ================================================================ */
+body.auditor-profile-page .auditor-profile {
+    width: min(1380px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 132px 0 64px;
+}
+
+body.auditor-profile-page .auditor-back-button {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 20px;
+    padding: 12px 19px;
+    color: #35105f;
+    background: rgba(255, 255, 255, .94);
+    border: 1px solid rgba(255, 214, 10, .9);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(34, 6, 67, .14);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body.auditor-profile-page .auditor-back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(34, 6, 67, .2);
+}
+
+body.auditor-profile-page .auditor-profile-card {
+    position: relative;
+    overflow: hidden;
+    color: #fdfaff;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(255, 214, 10, .18), transparent 30%),
+        linear-gradient(145deg, #1c0836 0%, #35105f 48%, #21043f 100%);
+    border: 1px solid rgba(255, 226, 85, .54);
+    border-radius: 34px;
+    box-shadow: 0 28px 80px rgba(27, 3, 53, .36);
+}
+
+body.auditor-profile-page .auditor-profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .38;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, #000, transparent 70%);
+}
+
+body.auditor-profile-page .auditor-hero {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(330px, .82fr) minmax(520px, 1.42fr);
+    min-height: 650px;
+}
+
+body.auditor-profile-page .auditor-portrait-panel {
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+    background: #19032e;
+}
+
+body.auditor-profile-page .auditor-portrait-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(21, 2, 40, .82), transparent 48%);
+    pointer-events: none;
+}
+
+body.auditor-profile-page .auditor-image-frame {
+    position: absolute;
+    z-index: 2;
+    inset: 22px;
+    border: 1px solid rgba(255, 214, 10, .55);
+    border-radius: 22px;
+    pointer-events: none;
+}
+
+body.auditor-profile-page .auditor-portrait-panel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 650px;
+    object-fit: cover;
+    object-position: center top;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform .7s ease;
+}
+
+body.auditor-profile-page .auditor-profile-card:hover .auditor-portrait-panel img {
+    transform: scale(1.018);
+}
+
+body.auditor-profile-page .auditor-photo-caption {
+    position: absolute;
+    z-index: 3;
+    left: 42px;
+    right: 42px;
+    bottom: 38px;
+    color: #ffe96b;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body.auditor-profile-page .auditor-intro {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 68px 70px;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(28, 8, 54, .82) 0%,
+            rgba(28, 8, 54, .58) 48%,
+            rgba(28, 8, 54, .24) 100%
+        ),
+        url("images/officer-card-bg-optimized.webp?v=2");
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+body.auditor-profile-page .auditor-role-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+body.auditor-profile-page .auditor-role {
+    display: inline-flex;
+    width: fit-content;
+    padding: 10px 18px;
+    color: #250547;
+    background: linear-gradient(135deg, #ffe762, #ffd60a);
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(255, 214, 10, .18);
+    font-size: 13px;
+    font-weight: 950;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+body.auditor-profile-page .auditor-mark {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    color: #ffd60a;
+    border: 1px solid rgba(255, 214, 10, .65);
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+body.auditor-profile-page .auditor-eyebrow {
+    margin: 0 0 10px;
+    color: #d8c5e8;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+body.auditor-profile-page .auditor-intro h1 {
+    max-width: 760px;
+    margin: 0;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 5vw, 80px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -.035em;
+}
+
+body.auditor-profile-page .auditor-lead {
+    max-width: 720px;
+    margin: 24px 0 34px;
+    color: #e6dced;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+body.auditor-profile-page .auditor-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+body.auditor-profile-page .auditor-fact {
+    min-width: 0;
+    padding: 18px;
+    background: rgba(255, 255, 255, .075);
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+}
+
+body.auditor-profile-page .auditor-fact span {
+    display: block;
+    margin-bottom: 7px;
+    color: #d9c8e6;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+body.auditor-profile-page .auditor-fact strong {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+body.auditor-profile-page .auditor-motto {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 34px 54px;
+    color: #270548;
+    background: linear-gradient(110deg, #ffd60a, #fff0a0 58%, #ffd60a);
+}
+
+body.auditor-profile-page .auditor-section-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(39, 5, 72, .3);
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+body.auditor-profile-page .auditor-section-label {
+    display: block;
+    margin-bottom: 8px;
+    color: inherit;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.auditor-profile-page .auditor-motto blockquote {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+body.auditor-profile-page .auditor-detail-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    padding: 46px 54px 22px;
+}
+
+body.auditor-profile-page .auditor-detail-card {
+    position: relative;
+    min-height: 340px;
+    padding: 38px;
+    color: #2a0a47;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px;
+    box-shadow: 0 18px 42px rgba(14, 0, 30, .2);
+}
+
+body.auditor-profile-page .auditor-detail-card-gold {
+    background: linear-gradient(150deg, #fffdf2, #fff4bd);
+    border-color: rgba(255, 214, 10, .72);
+}
+
+body.auditor-profile-page .auditor-card-index {
+    position: absolute;
+    top: 26px;
+    right: 30px;
+    color: rgba(60, 9, 108, .13);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+body.auditor-profile-page .auditor-detail-card h2 {
+    max-width: 80%;
+    margin: 6px 0 24px;
+    color: #3c096c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.15;
+}
+
+body.auditor-profile-page .auditor-detail-card ul {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.auditor-profile-page .auditor-detail-card li {
+    position: relative;
+    padding: 0 0 0 25px;
+    color: #54435f;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+body.auditor-profile-page .auditor-detail-card li::before {
+    content: "";
+    position: absolute;
+    top: .65em;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    background: #ffd60a;
+    border: 2px solid #3c096c;
+    border-radius: 50%;
+}
+
+body.auditor-profile-page .auditor-quote {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    margin: 0 54px 54px;
+    padding: 36px 40px;
+    background: rgba(255,255,255,.085);
+    border: 1px solid rgba(255,255,255,.14);
+    border-left: 6px solid #ffd60a;
+    border-radius: 20px;
+}
+
+body.auditor-profile-page .auditor-quote-mark {
+    color: #ffd60a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 74px;
+    line-height: .8;
+}
+
+body.auditor-profile-page .auditor-quote blockquote {
+    max-width: 920px;
+    margin: 5px 0 14px;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-style: italic;
+    line-height: 1.48;
+}
+
+body.auditor-profile-page .auditor-quote cite {
+    color: #ffe96b;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+@media (max-width: 940px) {
+    body.auditor-profile-page .auditor-profile {
+        width: min(100% - 28px, 720px);
+        padding: 112px 0 46px;
+    }
+
+    body.auditor-profile-page .auditor-hero {
+        grid-template-columns: 1fr;
+    }
+
+    body.auditor-profile-page .auditor-portrait-panel,
+    body.auditor-profile-page .auditor-portrait-panel img {
+        min-height: 0;
+        height: auto;
+    }
+
+    body.auditor-profile-page .auditor-portrait-panel img {
+        aspect-ratio: 4 / 5;
+    }
+
+    body.auditor-profile-page .auditor-intro {
+        padding: 42px 32px 46px;
+        text-align: center;
+    }
+
+    body.auditor-profile-page .auditor-role-row {
+        justify-content: center;
+    }
+
+    body.auditor-profile-page .auditor-eyebrow,
+    body.auditor-profile-page .auditor-lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body.auditor-profile-page .auditor-facts,
+    body.auditor-profile-page .auditor-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.auditor-profile-page .auditor-detail-grid {
+        padding: 30px 26px 18px;
+    }
+
+    body.auditor-profile-page .auditor-detail-card {
+        min-height: 0;
+    }
+
+    body.auditor-profile-page .auditor-quote {
+        margin: 0 26px 34px;
+    }
+}
+
+/* ================================================================
+   Clean isolated Auditor layout for every standard officer profile.
+   This class intentionally carries no role-specific layout classes.
+   ================================================================ */
+body.officer-uniform-page:not(.president-profile-page) .profile-container {
+    width: min(1380px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 132px 0 64px;
+    text-align: left;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .back-button {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 20px;
+    padding: 12px 19px;
+    color: #35105f;
+    background: rgba(255,255,255,.95);
+    border: 1px solid rgba(255,214,10,.9);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(34,6,67,.14);
+    font-size: 14px;
+    font-weight: 850;
+    text-decoration: none;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(330px,.82fr) minmax(520px,1.42fr);
+    grid-template-rows: auto auto minmax(270px,1fr) auto auto auto;
+    gap: 0 22px;
+    overflow: hidden;
+    max-width: none;
+    padding: 0 0 54px;
+    color: #fdfaff;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(255,214,10,.18), transparent 30%),
+        linear-gradient(145deg,#1c0836 0%,#35105f 48%,#21043f 100%);
+    border: 1px solid rgba(255,226,85,.54);
+    border-radius: 34px;
+    box-shadow: 0 28px 80px rgba(27,3,53,.36);
+    text-align: left;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    pointer-events: none;
+    opacity: .38;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size: 42px 42px;
+    border: 0;
+    mask-image: linear-gradient(to bottom,#000,transparent 70%);
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card::after {
+    display: none;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > img {
+    position: relative;
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: stretch;
+    justify-self: stretch;
+    width: 100%;
+    height: 650px;
+    min-height: 650px;
+    margin: 0;
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
+    clip-path: none;
+    filter: none;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    box-shadow: none;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > h1 {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    justify-self: stretch;
+    margin: 0;
+    padding: 82px 54px 8px 32px;
+    color: #fff;
+    background: none;
+    border: 0;
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: clamp(48px,5vw,80px);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    text-align: left;
+    text-shadow: none;
+    text-transform: none;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > h2 {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    justify-self: start;
+    width: fit-content;
+    margin: 14px 0 26px 32px;
+    padding: 10px 18px;
+    color: #250547;
+    background: linear-gradient(135deg,#ffe762,#ffd60a);
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(255,214,10,.18);
+    font-size: 13px;
+    font-weight: 950;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .info-grid {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0 54px 48px 32px;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .info-box {
+    min-height: 110px;
+    padding: 18px;
+    color: #fff;
+    background: rgba(255,255,255,.075);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 16px;
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+    text-align: left;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .info-box h3 {
+    margin: 0 0 9px;
+    color: #d9c8e6;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .info-box p {
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section {
+    position: relative;
+    z-index: 1;
+    transform: none;
+    clip-path: none;
+    text-align: left;
+}
+
+/* Motto */
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(2) {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    align-self: stretch;
+    margin: 0;
+    padding: 34px 54px;
+    color: #270548;
+    background: linear-gradient(110deg,#ffd60a,#fff0a0 58%,#ffd60a);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(2) h3 {
+    margin: 0 0 8px;
+    color: #270548;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(2) p {
+    margin: 0;
+    color: #270548;
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: clamp(25px,3vw,38px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Achievements and contributions */
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4),
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5) {
+    grid-row: 5;
+    min-height: 330px;
+    margin-top: 46px;
+    padding: 38px;
+    color: #2a0a47;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px;
+    box-shadow: 0 18px 42px rgba(14,0,30,.2);
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4) {
+    grid-column: 1;
+    margin-left: 54px;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5) {
+    grid-column: 2;
+    margin-right: 54px;
+    background: linear-gradient(150deg,#fffdf2,#fff4bd);
+    border-color: rgba(255,214,10,.72);
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4) h3,
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5) h3 {
+    margin: 0 0 24px;
+    color: #3c096c;
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: 29px;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4) li,
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5) li {
+    color: #54435f;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+/* Political quote */
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(3) {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    margin: 22px 54px 0;
+    padding: 36px 40px;
+    color: #fff;
+    background: rgba(255,255,255,.085);
+    border: 1px solid rgba(255,255,255,.14);
+    border-left: 6px solid #ffd60a;
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(3) h3 {
+    margin: 0 0 12px;
+    color: #ffe96b;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(3) p {
+    margin: 0;
+    color: #fff;
+    font-family: Georgia,"Times New Roman",serif;
+    font-size: clamp(21px,2.3vw,30px);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+@media (max-width: 940px) {
+    body.officer-uniform-page:not(.president-profile-page) .profile-container {
+        width: min(100% - 28px,720px);
+        padding: 112px 0 46px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 0;
+        padding-bottom: 28px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > img,
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > h1,
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > h2,
+    body.officer-uniform-page:not(.president-profile-page) .info-grid,
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(2),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(3),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > h1 {
+        padding: 42px 28px 8px;
+        text-align: center;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > h2 {
+        justify-self: center;
+        margin: 14px 0 28px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .info-grid {
+        grid-template-columns: 1fr;
+        padding: 0 28px 38px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(3) {
+        min-height: 0;
+        margin: 22px 22px 0;
+    }
+}
+
+@media (max-width: 560px) {
+    body.officer-uniform-page:not(.president-profile-page) .profile-container {
+        width: calc(100% - 20px);
+        padding-top: 96px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card {
+        border-radius: 22px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > h1 {
+        font-size: 38px;
+    }
+
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(2),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(3),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(4),
+    body.officer-uniform-page:not(.president-profile-page) .profile-card > div.section:nth-of-type(5) {
+        padding: 26px 22px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.auditor-profile-page .auditor-profile {
+        width: calc(100% - 20px);
+        padding-top: 96px;
+    }
+
+    body.auditor-profile-page .auditor-profile-card {
+        border-radius: 22px;
+    }
+
+    body.auditor-profile-page .auditor-image-frame {
+        inset: 14px;
+    }
+
+    body.auditor-profile-page .auditor-photo-caption {
+        left: 22px;
+        right: 22px;
+        bottom: 25px;
+        font-size: 9px;
+    }
+
+    body.auditor-profile-page .auditor-intro {
+        padding: 34px 20px 38px;
+    }
+
+    body.auditor-profile-page .auditor-intro h1 {
+        font-size: 39px;
+    }
+
+    body.auditor-profile-page .auditor-role-row {
+        gap: 10px;
+    }
+
+    body.auditor-profile-page .auditor-role {
+        padding: 9px 14px;
+        font-size: 10px;
+    }
+
+    body.auditor-profile-page .auditor-mark {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+    }
+
+    body.auditor-profile-page .auditor-facts {
+        gap: 9px;
+    }
+
+    body.auditor-profile-page .auditor-fact {
+        padding: 15px;
+    }
+
+    body.auditor-profile-page .auditor-motto {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 28px 24px;
+        text-align: center;
+    }
+
+    body.auditor-profile-page .auditor-section-icon {
+        margin: 0 auto;
+    }
+
+    body.auditor-profile-page .auditor-detail-grid {
+        padding: 22px 14px 14px;
+        gap: 14px;
+    }
+
+    body.auditor-profile-page .auditor-detail-card {
+        padding: 30px 24px;
+    }
+
+    body.auditor-profile-page .auditor-detail-card h2 {
+        font-size: 27px;
+    }
+
+    body.auditor-profile-page .auditor-quote {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin: 0 14px 22px;
+        padding: 28px 24px;
+        text-align: left;
+    }
+
+    body.auditor-profile-page .auditor-quote-mark {
+        font-size: 56px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.auditor-profile-page .auditor-profile-card,
+    body.auditor-profile-page .auditor-portrait-panel img,
+    body.auditor-profile-page .auditor-back-button {
+        animation: none;
+        transition: none;
+    }
 }
 
 .divider-leaf{
@@ -7724,6 +8633,15 @@ body.president-profile-page .president-political-quote cite {
     }
 }
 
+@media (max-width: 1500px) {
+    body.officers-page::before,
+    body.profile-background::before {
+        background-image:
+            linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
+            url("images/background1-optimized.webp?v=1") !important;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1500px) and (orientation: portrait) {
     body.page-background::before,
     body.profile-background::before {
@@ -7731,5 +8649,1567 @@ body.president-profile-page .president-political-quote cite {
             linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
             url("images/background-portrait.jpg") !important;
         background-position: center top !important;
+    }
+}
+
+/* ================================================================
+   Position-led officer profiles (President and Auditor stay unique)
+   ================================================================ */
+body.role-profile-page {
+    --role-primary: #4c1d95;
+    --role-deep: #25103d;
+    --role-accent: #ffd60a;
+    --role-soft: #f5effb;
+    --role-label: "OFFICER PROFILE";
+}
+
+body.role-adviser {
+    --role-primary: #7f1d1d;
+    --role-deep: #3f0d12;
+    --role-accent: #f7c948;
+    --role-soft: #fff5e7;
+    --role-label: "GUIDANCE & MENTORSHIP";
+}
+
+body.role-program-chair {
+    --role-primary: #153e75;
+    --role-deep: #102a43;
+    --role-accent: #f6c344;
+    --role-soft: #eaf4ff;
+    --role-label: "ACADEMIC LEADERSHIP";
+}
+
+body.role-assistant-chair {
+    --role-primary: #286089;
+    --role-deep: #16324f;
+    --role-accent: #7dd3fc;
+    --role-soft: #eef8ff;
+    --role-label: "PROGRAM COORDINATION";
+}
+
+body.role-vp-internal {
+    --role-primary: #087f5b;
+    --role-deep: #064e3b;
+    --role-accent: #fbd34d;
+    --role-soft: #ecfdf5;
+    --role-label: "INTERNAL AFFAIRS";
+}
+
+body.role-vp-external {
+    --role-primary: #1d4ed8;
+    --role-deep: #172554;
+    --role-accent: #67e8f9;
+    --role-soft: #eff6ff;
+    --role-label: "EXTERNAL RELATIONS";
+}
+
+body.role-secretary {
+    --role-primary: #7c3aed;
+    --role-deep: #3b1768;
+    --role-accent: #f0abfc;
+    --role-soft: #faf5ff;
+    --role-label: "RECORDS & DOCUMENTATION";
+}
+
+body.role-treasurer {
+    --role-primary: #047857;
+    --role-deep: #064e3b;
+    --role-accent: #fbbf24;
+    --role-soft: #f0fdf4;
+    --role-label: "FINANCE & STEWARDSHIP";
+}
+
+body.role-communications {
+    --role-primary: #be185d;
+    --role-deep: #500724;
+    --role-accent: #38bdf8;
+    --role-soft: #fff1f6;
+    --role-label: "PUBLIC INFORMATION";
+}
+
+body.role-business {
+    --role-primary: #b45309;
+    --role-deep: #522006;
+    --role-accent: #fde047;
+    --role-soft: #fff7ed;
+    --role-label: "OPERATIONS & ENTERPRISE";
+}
+
+body.role-committee {
+    --role-primary: #475569;
+    --role-deep: #1e293b;
+    --role-accent: #facc15;
+    --role-soft: #f8fafc;
+    --role-label: "STANDING COMMITTEE";
+}
+
+body.role-representative {
+    --role-primary: #4338ca;
+    --role-deep: #28206b;
+    --role-accent: #fcd34d;
+    --role-soft: #f1f1ff;
+    --role-label: "YEAR REPRESENTATION";
+}
+
+body.role-rep-two {
+    --role-primary: #0369a1;
+    --role-deep: #0c4a6e;
+    --role-accent: #facc15;
+    --role-soft: #f0f9ff;
+    --role-label: "SECOND YEAR VOICE";
+}
+
+body.role-rep-three {
+    --role-primary: #6d28d9;
+    --role-deep: #3b0764;
+    --role-accent: #f9a8d4;
+    --role-soft: #faf5ff;
+    --role-label: "THIRD YEAR VOICE";
+}
+
+body.role-rep-four {
+    --role-primary: #9f1239;
+    --role-deep: #4c0519;
+    --role-accent: #fcd34d;
+    --role-soft: #fff1f2;
+    --role-label: "FOURTH YEAR VOICE";
+}
+
+body.role-profile-page .profile-container {
+    width: min(1380px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 132px 0 64px;
+    text-align: left;
+}
+
+body.role-profile-page .back-button {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 20px;
+    padding: 12px 19px;
+    color: var(--role-deep);
+    background: rgba(255,255,255,.95);
+    border: 1px solid color-mix(in srgb, var(--role-accent) 75%, white);
+    border-radius: 999px;
+    box-shadow: 0 10px 28px rgba(28, 5, 52, .14);
+    font-size: 14px;
+    font-weight: 850;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body.role-profile-page .back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(28, 5, 52, .2);
+}
+
+body.role-profile-page .profile-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+    gap: 0 44px;
+    overflow: hidden;
+    max-width: none;
+    padding: 88px 48px 48px;
+    color: #34243d;
+    background:
+        radial-gradient(circle at 92% 10%, color-mix(in srgb, var(--role-accent) 22%, transparent), transparent 27%),
+        linear-gradient(145deg, #ffffff 0%, var(--role-soft) 100%);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 32px;
+    box-shadow: 0 28px 75px rgba(29, 5, 52, .3);
+    text-align: left;
+}
+
+body.role-profile-page .profile-card::before {
+    content: var(--role-label);
+    position: absolute;
+    inset: 0 0 auto;
+    display: flex;
+    align-items: center;
+    height: 58px;
+    padding: 0 48px;
+    color: #fff;
+    background: linear-gradient(110deg, var(--role-deep), var(--role-primary));
+    border-bottom: 4px solid var(--role-accent);
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+body.role-profile-page .profile-card::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 48px;
+    width: 17px;
+    height: 17px;
+    background: var(--role-accent);
+    border: 4px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--role-accent);
+}
+
+body.role-profile-page .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    align-self: stretch;
+    width: 100%;
+    height: 570px;
+    margin: 0;
+    object-fit: cover;
+    object-position: center top;
+    border: 8px solid #fff;
+    border-radius: 24px;
+    outline: 2px solid color-mix(in srgb, var(--role-primary) 45%, transparent);
+    box-shadow: 0 20px 48px color-mix(in srgb, var(--role-deep) 24%, transparent);
+}
+
+body.role-profile-page .profile-card > h1 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    margin: 12px 0 6px;
+    color: var(--role-deep);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4.8vw, 70px);
+    font-weight: 750;
+    line-height: 1.04;
+    letter-spacing: -.035em;
+}
+
+body.role-profile-page .profile-card > h2 {
+    grid-column: 2;
+    grid-row: 2;
+    width: fit-content;
+    margin: 10px 0 28px;
+    padding: 9px 16px;
+    color: #fff;
+    background: var(--role-primary);
+    border-left: 5px solid var(--role-accent);
+    border-radius: 0 999px 999px 0;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+body.role-profile-page .info-grid {
+    grid-column: 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0 0 18px;
+}
+
+body.role-profile-page .info-box {
+    min-height: 110px;
+    padding: 18px;
+    color: var(--role-deep);
+    background: rgba(255,255,255,.82);
+    border: 1px solid color-mix(in srgb, var(--role-primary) 16%, #fff);
+    border-top: 4px solid var(--role-accent);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--role-deep) 9%, transparent);
+    text-align: left;
+}
+
+body.role-profile-page .info-box h3 {
+    margin: 0 0 9px;
+    color: var(--role-primary);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+body.role-profile-page .info-box p {
+    margin: 0;
+    color: var(--role-deep);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+body.role-profile-page .profile-card > div.section {
+    position: relative;
+    margin: 0;
+    padding: 28px;
+    color: #46374e;
+    background: rgba(255,255,255,.9);
+    border: 1px solid color-mix(in srgb, var(--role-primary) 14%, #fff);
+    border-radius: 20px;
+    box-shadow: 0 14px 32px color-mix(in srgb, var(--role-deep) 10%, transparent);
+    text-align: left;
+}
+
+body.role-profile-page .profile-card > div.section h3 {
+    margin: 0 0 14px;
+    color: var(--role-primary);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+}
+
+body.role-profile-page .profile-card > div.section p,
+body.role-profile-page .profile-card > div.section li {
+    color: #53475a;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+body.role-profile-page .profile-card > div.section ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.role-profile-page .profile-card > div.section li {
+    position: relative;
+    padding-left: 22px;
+}
+
+body.role-profile-page .profile-card > div.section li::before {
+    content: "";
+    position: absolute;
+    top: .72em;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--role-accent);
+    border: 2px solid var(--role-primary);
+    border-radius: 50%;
+}
+
+/* The four existing content blocks become motto, quote, achievements, contributions. */
+body.role-profile-page .profile-card > div.section:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 4;
+    align-self: end;
+    color: #fff;
+    background: linear-gradient(130deg, var(--role-deep), var(--role-primary));
+    border-color: transparent;
+    border-left: 6px solid var(--role-accent);
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(2) h3,
+body.role-profile-page .profile-card > div.section:nth-of-type(2) p {
+    color: #fff;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(3) {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    margin-top: 28px;
+    padding: 32px 38px;
+    background: color-mix(in srgb, var(--role-soft) 60%, #fff);
+    border-left: 7px solid var(--role-primary);
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(3) p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(4),
+body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+    grid-row: 6;
+    margin-top: 22px;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(4) {
+    grid-column: 1;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+    grid-column: 2;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+    background: linear-gradient(145deg, #fff, var(--role-soft));
+    border-bottom: 5px solid var(--role-accent);
+}
+
+@media (max-width: 980px) {
+    body.role-profile-page .profile-container {
+        width: min(100% - 28px, 760px);
+        padding: 112px 0 48px;
+    }
+
+    body.role-profile-page .profile-card {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 82px 30px 34px;
+        text-align: center;
+    }
+
+    body.role-profile-page .profile-card > img,
+    body.role-profile-page .profile-card > h1,
+    body.role-profile-page .profile-card > h2,
+    body.role-profile-page .info-grid,
+    body.role-profile-page .profile-card > div.section:nth-of-type(2),
+    body.role-profile-page .profile-card > div.section:nth-of-type(3),
+    body.role-profile-page .profile-card > div.section:nth-of-type(4),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    body.role-profile-page .profile-card > img {
+        width: min(100%, 430px);
+        height: auto;
+        aspect-ratio: 4 / 5;
+        justify-self: center;
+        margin-bottom: 30px;
+    }
+
+    body.role-profile-page .profile-card > h1 {
+        justify-self: center;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    body.role-profile-page .profile-card > h2 {
+        justify-self: center;
+        border-right: 5px solid var(--role-accent);
+        border-radius: 999px;
+    }
+
+    body.role-profile-page .profile-card > div.section,
+    body.role-profile-page .profile-card > div.section:nth-of-type(2),
+    body.role-profile-page .profile-card > div.section:nth-of-type(3),
+    body.role-profile-page .profile-card > div.section:nth-of-type(4),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        margin-top: 16px;
+    }
+
+    body.role-profile-page .profile-card > div.section:nth-of-type(2) {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    body.role-profile-page .profile-container {
+        width: calc(100% - 20px);
+        padding-top: 96px;
+    }
+
+    body.role-profile-page .profile-card {
+        padding: 76px 16px 20px;
+        border-radius: 22px;
+    }
+
+    body.role-profile-page .profile-card::before {
+        height: 52px;
+        padding: 0 20px;
+        font-size: 9px;
+        letter-spacing: .13em;
+    }
+
+    body.role-profile-page .profile-card::after {
+        top: 17px;
+        right: 20px;
+        width: 13px;
+        height: 13px;
+    }
+
+    body.role-profile-page .profile-card > h1 {
+        font-size: 36px;
+    }
+
+    body.role-profile-page .info-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    body.role-profile-page .info-box {
+        min-height: 0;
+        text-align: center;
+    }
+
+    body.role-profile-page .profile-card > div.section,
+    body.role-profile-page .profile-card > div.section:nth-of-type(3) {
+        padding: 25px 22px;
+    }
+}
+
+/* ================================================================
+   Uniform officer profiles — all use the Auditor visual system
+   ================================================================ */
+body.role-profile-page {
+    --role-primary: #3c096c;
+    --role-deep: #1c0836;
+    --role-accent: #ffd60a;
+    --role-soft: #f8f2fc;
+}
+
+body.role-profile-page .profile-card {
+    display: grid;
+    grid-template-columns: minmax(330px, .82fr) minmax(520px, 1.42fr);
+    grid-template-rows: auto auto minmax(270px, 1fr) auto auto auto;
+    gap: 0 22px;
+    overflow: hidden;
+    padding: 0 0 54px;
+    color: #fdfaff;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(255,214,10,.18), transparent 30%),
+        linear-gradient(145deg, #1c0836 0%, #35105f 48%, #21043f 100%);
+    border: 1px solid rgba(255,226,85,.54);
+    border-radius: 34px;
+    box-shadow: 0 28px 80px rgba(27,3,53,.36);
+}
+
+body.role-profile-page .profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    pointer-events: none;
+    opacity: .38;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    border: 0;
+    mask-image: linear-gradient(to bottom, #000, transparent 70%);
+}
+
+body.role-profile-page .profile-card::after {
+    display: none;
+}
+
+body.role-profile-page .profile-card > img {
+    position: relative;
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: stretch;
+    width: 100%;
+    height: 650px;
+    min-height: 650px;
+    margin: 0;
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
+    clip-path: none;
+    filter: none;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    box-shadow: inset 0 -100px 60px rgba(21,2,40,.42);
+}
+
+body.role-profile-page .profile-card > h1 {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    justify-self: stretch;
+    margin: 0;
+    padding: 82px 54px 8px 32px;
+    color: #fff;
+    background: none;
+    border: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 5vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    text-align: left;
+    text-shadow: none;
+    text-transform: none;
+}
+
+body.role-profile-page .profile-card > h2 {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    justify-self: start;
+    width: fit-content;
+    margin: 14px 0 26px 32px;
+    padding: 10px 18px;
+    color: #250547;
+    background: linear-gradient(135deg, #ffe762, #ffd60a);
+    border: 0;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(255,214,10,.18);
+    font-size: 13px;
+    font-weight: 950;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+body.role-profile-page .info-grid {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0 54px 48px 32px;
+}
+
+body.role-profile-page .info-box {
+    min-height: 110px;
+    padding: 18px;
+    color: #fff;
+    background: rgba(255,255,255,.075);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 16px;
+    box-shadow: none;
+    backdrop-filter: blur(8px);
+    text-align: left;
+}
+
+body.role-profile-page .info-box h3 {
+    margin: 0 0 9px;
+    color: #d9c8e6;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+body.role-profile-page .info-box p {
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+body.role-profile-page .profile-card > div.section {
+    position: relative;
+    z-index: 1;
+    transform: none;
+    clip-path: none;
+    text-align: left;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(2) {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    align-self: stretch;
+    margin: 0;
+    padding: 34px 54px;
+    color: #270548;
+    background: linear-gradient(110deg, #ffd60a, #fff0a0 58%, #ffd60a);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(2) h3 {
+    margin: 0 0 8px;
+    color: #270548;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(2) p {
+    margin: 0;
+    color: #270548;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 38px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(4),
+body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+    grid-row: 5;
+    min-height: 330px;
+    margin-top: 46px;
+    padding: 38px;
+    color: #2a0a47;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px;
+    box-shadow: 0 18px 42px rgba(14,0,30,.2);
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(4) {
+    grid-column: 1;
+    margin-left: 54px;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+    grid-column: 2;
+    margin-right: 54px;
+    background: linear-gradient(150deg, #fffdf2, #fff4bd);
+    border-color: rgba(255,214,10,.72);
+    border-bottom: 1px solid rgba(255,214,10,.72);
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(4) h3,
+body.role-profile-page .profile-card > div.section:nth-of-type(5) h3 {
+    margin: 0 0 24px;
+    color: #3c096c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(4) li,
+body.role-profile-page .profile-card > div.section:nth-of-type(5) li {
+    color: #54435f;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(3) {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    margin: 22px 54px 0;
+    padding: 36px 40px;
+    color: #fff;
+    background: rgba(255,255,255,.085);
+    border: 1px solid rgba(255,255,255,.14);
+    border-left: 6px solid #ffd60a;
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(3) h3 {
+    margin: 0 0 12px;
+    color: #ffe96b;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 950;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.role-profile-page .profile-card > div.section:nth-of-type(3) p {
+    margin: 0;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(21px, 2.3vw, 30px);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* President uses the same Auditor structure while preserving its own content. */
+body.president-profile-page .president-profile-card {
+    overflow: hidden;
+    color: #fdfaff;
+    background:
+        radial-gradient(circle at 85% 8%, rgba(255,214,10,.18), transparent 30%),
+        linear-gradient(145deg, #1c0836 0%, #35105f 48%, #21043f 100%);
+    border: 1px solid rgba(255,226,85,.54);
+    border-radius: 34px;
+    box-shadow: 0 28px 80px rgba(27,3,53,.36);
+}
+
+body.president-profile-page .president-profile-hero {
+    grid-template-columns: minmax(330px,.82fr) minmax(520px,1.42fr);
+    gap: 0;
+    min-height: 650px;
+    padding: 0;
+    background: transparent;
+}
+
+body.president-profile-page .president-photo-wrap {
+    width: 100%;
+    height: 650px;
+}
+
+body.president-profile-page .president-photo-wrap::before,
+body.president-profile-page .president-photo-wrap::after,
+body.president-profile-page .president-photo-badge {
+    display: none;
+}
+
+body.president-profile-page .president-photo-wrap img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    object-position: center top;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.president-profile-page .president-profile-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 68px 70px;
+    color: #fff;
+}
+
+body.president-profile-page .president-role {
+    color: #250547;
+    background: linear-gradient(135deg,#ffe762,#ffd60a);
+    border: 0;
+}
+
+body.president-profile-page .president-profile-intro h1 {
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+body.president-profile-page .president-lead {
+    color: #e6dced;
+}
+
+body.president-profile-page .president-fact {
+    color: #fff;
+    background: rgba(255,255,255,.075);
+    border-color: rgba(255,255,255,.13);
+    box-shadow: none;
+}
+
+body.president-profile-page .president-fact span { color: #d9c8e6; }
+body.president-profile-page .president-fact strong { color: #fff; }
+
+body.president-profile-page .president-quote-card {
+    margin: 0;
+    padding: 34px 54px;
+    color: #270548;
+    background: linear-gradient(110deg,#ffd60a,#fff0a0 58%,#ffd60a);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.president-profile-page .president-quote-card blockquote,
+body.president-profile-page .president-quote-card .president-section-label {
+    color: #270548;
+}
+
+body.president-profile-page .president-interest-grid {
+    gap: 22px;
+    padding: 46px 54px 22px;
+}
+
+body.president-profile-page .president-interest-card {
+    min-height: 330px;
+    padding: 38px;
+    color: #2a0a47;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px;
+    box-shadow: 0 18px 42px rgba(14,0,30,.2);
+}
+
+body.president-profile-page .president-interest-card:nth-child(2) {
+    background: linear-gradient(150deg,#fffdf2,#fff4bd);
+    border-color: rgba(255,214,10,.72);
+}
+
+body.president-profile-page .president-political-quote {
+    margin: 0 54px 54px;
+    padding: 36px 40px;
+    color: #fff;
+    background: rgba(255,255,255,.085);
+    border: 1px solid rgba(255,255,255,.14);
+    border-left: 6px solid #ffd60a;
+    border-radius: 20px;
+}
+
+body.president-profile-page .president-political-quote blockquote { color: #fff; }
+body.president-profile-page .president-political-quote cite,
+body.president-profile-page .president-political-quote .president-section-label { color: #ffe96b; }
+
+@media (max-width: 940px) {
+    body.role-profile-page .profile-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 0;
+        padding-bottom: 28px;
+    }
+
+    body.role-profile-page .profile-card > img,
+    body.role-profile-page .profile-card > h1,
+    body.role-profile-page .profile-card > h2,
+    body.role-profile-page .info-grid,
+    body.role-profile-page .profile-card > div.section:nth-of-type(2),
+    body.role-profile-page .profile-card > div.section:nth-of-type(3),
+    body.role-profile-page .profile-card > div.section:nth-of-type(4),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    body.role-profile-page .profile-card > img {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        outline: 0;
+    }
+
+    body.role-profile-page .profile-card > h1 {
+        justify-self: stretch;
+        padding: 42px 28px 8px;
+        text-align: center;
+    }
+
+    body.role-profile-page .profile-card > h2 {
+        justify-self: center;
+        margin: 14px 0 28px;
+    }
+
+    body.role-profile-page .info-grid {
+        grid-template-columns: 1fr;
+        padding: 0 28px 38px;
+    }
+
+    body.role-profile-page .profile-card > div.section:nth-of-type(4),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        min-height: 0;
+        margin: 22px 22px 0;
+    }
+
+    body.role-profile-page .profile-card > div.section:nth-of-type(3) {
+        margin: 22px 22px 0;
+    }
+
+    body.president-profile-page .president-profile-hero {
+        grid-template-columns: 1fr;
+    }
+
+    body.president-profile-page .president-photo-wrap,
+    body.president-profile-page .president-photo-wrap img {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+    body.president-profile-page .president-profile-intro {
+        padding: 42px 28px 46px;
+    }
+
+    body.president-profile-page .president-interest-grid {
+        grid-template-columns: 1fr;
+        padding: 28px 22px 18px;
+    }
+
+    body.president-profile-page .president-interest-card {
+        min-height: 0;
+    }
+
+    body.president-profile-page .president-political-quote {
+        margin: 0 22px 28px;
+    }
+}
+
+@supports not (color: color-mix(in srgb, red, blue)) {
+    body.role-profile-page .profile-card,
+    body.role-profile-page .profile-card > div.section:nth-of-type(3),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        background: #fff;
+    }
+
+    body.role-profile-page .back-button,
+    body.role-profile-page .info-box,
+    body.role-profile-page .profile-card > div.section {
+        border-color: rgba(60, 9, 108, .16);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.role-profile-page .profile-card,
+    body.role-profile-page .profile-card > img,
+    body.role-profile-page .back-button {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* ================================================================
+   Truly distinct layouts by office
+   ================================================================ */
+
+/* ADVISER — formal academic portrait and mentorship dossier */
+body.role-adviser .profile-card {
+    grid-template-columns: 390px repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    padding: 104px 52px 52px;
+    background:
+        linear-gradient(90deg, rgba(127,29,29,.055) 1px, transparent 1px),
+        linear-gradient(#fffaf0, #fff);
+    background-size: 34px 34px, auto;
+}
+
+body.role-adviser .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start;
+    width: 340px;
+    height: 340px;
+    justify-self: center;
+    border-width: 12px;
+    border-radius: 50%;
+    outline: 8px double #7f1d1d;
+}
+
+body.role-adviser .profile-card > h1 {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    align-self: end;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(127,29,29,.25);
+}
+
+body.role-adviser .profile-card > h2 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+body.role-adviser .info-grid {
+    grid-column: 2 / -1;
+    grid-row: 3;
+}
+
+body.role-adviser .profile-card > div.section:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 4;
+    border-radius: 100px 100px 20px 20px;
+    text-align: center;
+}
+
+body.role-adviser .profile-card > div.section:nth-of-type(3) {
+    grid-column: 2 / -1;
+    grid-row: 4;
+    margin-top: 0;
+}
+
+body.role-adviser .profile-card > div.section:nth-of-type(4) {
+    grid-column: 1 / span 2;
+    grid-row: 5;
+}
+
+body.role-adviser .profile-card > div.section:nth-of-type(5) {
+    grid-column: 3;
+    grid-row: 5;
+}
+
+/* PROGRAM CHAIR — cinematic academic banner with structured agenda */
+body.role-program-chair .profile-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    padding: 74px 34px 36px;
+    background: #f5f9ff;
+}
+
+body.role-program-chair .profile-card > img {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    height: 500px;
+    border: 0;
+    border-radius: 22px;
+    outline: 0;
+    box-shadow: inset 0 -140px 80px rgba(16,42,67,.4);
+}
+
+body.role-program-chair .profile-card > h1 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    z-index: 2;
+    align-self: end;
+    margin: 0;
+    padding: 38px 44px 88px;
+    color: #fff;
+    text-shadow: 0 3px 18px rgba(0,0,0,.7);
+}
+
+body.role-program-chair .profile-card > h2 {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 3;
+    align-self: end;
+    margin: 0 0 34px 44px;
+}
+
+body.role-program-chair .info-grid {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+}
+
+body.role-program-chair .profile-card > div.section:nth-of-type(2),
+body.role-program-chair .profile-card > div.section:nth-of-type(3) {
+    grid-row: 3;
+    margin-top: 0;
+}
+
+body.role-program-chair .profile-card > div.section:nth-of-type(2) { grid-column: 1; }
+body.role-program-chair .profile-card > div.section:nth-of-type(3) { grid-column: 2; }
+body.role-program-chair .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 4; }
+body.role-program-chair .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 4; }
+
+/* ASSISTANT CHAIR — collaborative reverse split with offset cards */
+body.role-assistant-chair .profile-card {
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 22px 42px;
+    padding: 104px 48px 48px;
+    background: linear-gradient(118deg, #eef8ff 0 64%, #d9efff 64% 100%);
+}
+
+body.role-assistant-chair .profile-card > img {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    width: 100%;
+    height: 600px;
+    transform: translateY(22px);
+    border-radius: 210px 210px 26px 26px;
+}
+
+body.role-assistant-chair .profile-card > h1 { grid-column: 1; grid-row: 1; }
+body.role-assistant-chair .profile-card > h2 { grid-column: 1; grid-row: 2; }
+body.role-assistant-chair .info-grid { grid-column: 1; grid-row: 3; grid-template-columns: 1fr; }
+body.role-assistant-chair .profile-card > div.section:nth-of-type(2) { grid-column: 1; grid-row: 4; }
+body.role-assistant-chair .profile-card > div.section:nth-of-type(3) { grid-column: 1 / -1; grid-row: 5; }
+body.role-assistant-chair .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 6; transform: translateY(-10px); }
+body.role-assistant-chair .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 6; transform: translateY(22px); }
+
+/* VP INTERNAL — operational dashboard with permanent left rail */
+body.role-vp-internal .profile-card {
+    grid-template-columns: 360px repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 92px 36px 38px 0;
+    background: linear-gradient(90deg, #064e3b 0 360px, #f4fff9 360px);
+}
+
+body.role-vp-internal .profile-card::before { padding-left: 392px; }
+
+body.role-vp-internal .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    width: calc(100% - 42px);
+    height: 560px;
+    align-self: start;
+    justify-self: center;
+    margin-top: 10px;
+    border: 5px solid rgba(255,255,255,.8);
+    border-radius: 0 80px 80px 0;
+    outline: 0;
+}
+
+body.role-vp-internal .profile-card > h1 { grid-column: 2 / -1; grid-row: 1; }
+body.role-vp-internal .profile-card > h2 { grid-column: 2; grid-row: 2; }
+body.role-vp-internal .info-grid { grid-column: 2 / -1; grid-row: 3; }
+body.role-vp-internal .profile-card > div.section:nth-of-type(2) { grid-column: 2 / -1; grid-row: 4; }
+body.role-vp-internal .profile-card > div.section:nth-of-type(3) { grid-column: 2 / -1; grid-row: 5; margin-top: 0; }
+body.role-vp-internal .profile-card > div.section:nth-of-type(4) { grid-column: 2; grid-row: 6; }
+body.role-vp-internal .profile-card > div.section:nth-of-type(5) { grid-column: 3; grid-row: 6; }
+
+/* VP EXTERNAL — diplomatic reverse composition and correspondence panels */
+body.role-vp-external .profile-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 34px;
+    padding: 100px 48px 48px;
+    background:
+        radial-gradient(circle at 82% 24%, rgba(103,232,249,.3), transparent 28%),
+        linear-gradient(150deg, #f8fbff, #e7efff);
+}
+
+body.role-vp-external .profile-card > img {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    width: 420px;
+    height: 420px;
+    justify-self: center;
+    border-radius: 50%;
+    outline: 14px solid rgba(29,78,216,.08);
+}
+
+body.role-vp-external .profile-card > h1 { grid-column: 1; grid-row: 1; align-self: end; }
+body.role-vp-external .profile-card > h2 { grid-column: 1; grid-row: 2; }
+body.role-vp-external .info-grid { grid-column: 1; grid-row: 3; grid-template-columns: 1fr; }
+body.role-vp-external .profile-card > div.section:nth-of-type(2) { grid-column: 1; grid-row: 4; }
+body.role-vp-external .profile-card > div.section:nth-of-type(3) { grid-column: 2; grid-row: 4; margin-top: 0; }
+body.role-vp-external .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 5; }
+body.role-vp-external .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 5; }
+
+/* SECRETARY — notebook and records layout */
+body.role-secretary .profile-card {
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: 0 50px;
+    padding: 108px 54px 54px 82px;
+    background:
+        linear-gradient(90deg, transparent 0 48px, rgba(190,24,93,.22) 48px 50px, transparent 50px),
+        repeating-linear-gradient(#fff 0 39px, #e9dcf7 39px 40px);
+}
+
+body.role-secretary .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 300px;
+    height: 390px;
+    transform: rotate(-3deg);
+    border: 14px solid #fff;
+    border-radius: 5px;
+    outline: 0;
+    box-shadow: 12px 16px 0 rgba(124,58,237,.16);
+}
+
+body.role-secretary .profile-card > h1 { grid-column: 2; grid-row: 1; font-family: "Segoe Print", "Comic Sans MS", cursive; }
+body.role-secretary .profile-card > h2 { grid-column: 2; grid-row: 2; }
+body.role-secretary .info-grid { grid-column: 2; grid-row: 3; }
+body.role-secretary .profile-card > div.section:nth-of-type(2) { grid-column: 1 / -1; grid-row: 4; margin-top: 34px; }
+body.role-secretary .profile-card > div.section:nth-of-type(3) { grid-column: 1 / -1; grid-row: 5; }
+body.role-secretary .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 6; }
+body.role-secretary .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 6; }
+
+body.role-secretary .profile-card > div.section,
+body.role-secretary .info-box {
+    border-style: dashed;
+}
+
+/* TREASURER — dark financial ledger and metric board */
+body.role-treasurer .profile-card {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 20px 36px;
+    padding: 104px 44px 46px;
+    color: #fff;
+    background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(145deg, #052e25, #064e3b);
+    background-size: 30px 30px, 30px 30px, auto;
+}
+
+body.role-treasurer .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 270px;
+    height: 350px;
+    border-radius: 20px;
+    outline: 1px solid #fbbf24;
+}
+
+body.role-treasurer .profile-card > h1 { grid-column: 2; grid-row: 1; color: #fff; }
+body.role-treasurer .profile-card > h2 { grid-column: 2; grid-row: 2; background: #fbbf24; color: #18392f; }
+body.role-treasurer .info-grid { grid-column: 2; grid-row: 3; }
+body.role-treasurer .info-box { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.17); }
+body.role-treasurer .info-box h3 { color: #fbbf24; }
+body.role-treasurer .info-box p { color: #fff; }
+body.role-treasurer .profile-card > div.section:nth-of-type(2) { grid-column: 1; grid-row: 4; background: #fbbf24; color: #18392f; }
+body.role-treasurer .profile-card > div.section:nth-of-type(2) h3,
+body.role-treasurer .profile-card > div.section:nth-of-type(2) p { color: #18392f; }
+body.role-treasurer .profile-card > div.section:nth-of-type(3) { grid-column: 2; grid-row: 4; margin-top: 0; }
+body.role-treasurer .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 5; }
+body.role-treasurer .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 5; }
+
+/* PUBLIC INFORMATION OFFICER — magazine cover and editorial columns */
+body.role-communications .profile-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 76px 30px 36px;
+    background: #fff7fb;
+}
+
+body.role-communications .profile-card > img {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    height: 560px;
+    border: 0;
+    border-radius: 18px;
+    outline: 0;
+    filter: saturate(1.08) contrast(1.03);
+}
+
+body.role-communications .profile-card > h1 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    z-index: 2;
+    align-self: end;
+    margin: 0;
+    padding: 160px 38px 78px;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(80,7,36,.92));
+    border-radius: 0 0 18px 18px;
+    font-family: Arial Black, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+body.role-communications .profile-card > h2 { grid-column: 1; grid-row: 1; z-index: 3; align-self: end; margin: 0 0 28px 38px; }
+body.role-communications .info-grid { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+body.role-communications .profile-card > div.section:nth-of-type(2) { grid-column: 1; grid-row: 3; }
+body.role-communications .profile-card > div.section:nth-of-type(3) { grid-column: 2; grid-row: 3; margin-top: 0; }
+body.role-communications .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 4; }
+body.role-communications .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 4; }
+body.role-communications .profile-card > div.section h3 { text-transform: uppercase; letter-spacing: .04em; }
+
+/* BUSINESS MANAGERS — operations board with staggered modules */
+body.role-business .profile-card {
+    grid-template-columns: 360px repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 98px 42px 44px;
+    background: linear-gradient(145deg, #fffaf2, #fce8ce);
+}
+
+body.role-business .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    width: 330px;
+    height: 510px;
+    border-radius: 22px 90px 22px 90px;
+    outline: 8px solid rgba(180,83,9,.09);
+}
+
+body.role-business .profile-card > h1 { grid-column: 2 / -1; grid-row: 1; }
+body.role-business .profile-card > h2 { grid-column: 2; grid-row: 2; }
+body.role-business .info-grid { grid-column: 2 / -1; grid-row: 3; }
+body.role-business .profile-card > div.section:nth-of-type(2) { grid-column: 2 / -1; grid-row: 4; }
+body.role-business .profile-card > div.section:nth-of-type(3) { grid-column: 1 / span 2; grid-row: 5; margin-top: 4px; }
+body.role-business .profile-card > div.section:nth-of-type(4) { grid-column: 3; grid-row: 5; transform: translateY(32px); }
+body.role-business .profile-card > div.section:nth-of-type(5) { grid-column: 1 / -1; grid-row: 6; }
+
+/* STANDING COMMITTEE — modular board and centered identity */
+body.role-committee .profile-card {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding: 102px 44px 44px;
+    background: #f8fafc;
+}
+
+body.role-committee .profile-card > img {
+    grid-column: 2;
+    grid-row: 1;
+    width: 280px;
+    height: 280px;
+    justify-self: center;
+    border-radius: 28px;
+}
+
+body.role-committee .profile-card > h1 { grid-column: 1 / -1; grid-row: 2; justify-self: center; text-align: center; }
+body.role-committee .profile-card > h2 { grid-column: 2; grid-row: 3; justify-self: center; }
+body.role-committee .info-grid { grid-column: 1 / -1; grid-row: 4; }
+body.role-committee .profile-card > div.section:nth-of-type(2) { grid-column: 1; grid-row: 5; }
+body.role-committee .profile-card > div.section:nth-of-type(3) { grid-column: 2 / -1; grid-row: 5; margin-top: 0; }
+body.role-committee .profile-card > div.section:nth-of-type(4) { grid-column: 1 / span 2; grid-row: 6; }
+body.role-committee .profile-card > div.section:nth-of-type(5) { grid-column: 3; grid-row: 6; }
+
+/* SECOND YEAR REPRESENTATIVE — youthful horizontal timeline */
+body.role-rep-two .profile-card {
+    grid-template-columns: 410px minmax(0, 1fr);
+    gap: 24px 42px;
+    padding: 100px 48px 48px;
+    background: linear-gradient(135deg, #f0f9ff, #fff);
+}
+
+body.role-rep-two .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 390px;
+    height: 480px;
+    border-radius: 190px 190px 24px 24px;
+}
+
+body.role-rep-two .profile-card > h1 { grid-column: 2; grid-row: 1; }
+body.role-rep-two .profile-card > h2 { grid-column: 2; grid-row: 2; }
+body.role-rep-two .info-grid { grid-column: 2; grid-row: 3; }
+body.role-rep-two .profile-card > div.section:nth-of-type(2),
+body.role-rep-two .profile-card > div.section:nth-of-type(3),
+body.role-rep-two .profile-card > div.section:nth-of-type(4),
+body.role-rep-two .profile-card > div.section:nth-of-type(5) {
+    grid-column: 1 / -1;
+    margin-top: 0;
+    padding-left: 78px;
+    border-left: 5px solid #0369a1;
+}
+body.role-rep-two .profile-card > div.section:nth-of-type(2) { grid-row: 4; }
+body.role-rep-two .profile-card > div.section:nth-of-type(3) { grid-row: 5; }
+body.role-rep-two .profile-card > div.section:nth-of-type(4) { grid-row: 6; }
+body.role-rep-two .profile-card > div.section:nth-of-type(5) { grid-row: 7; }
+
+/* THIRD YEAR REPRESENTATIVE — asymmetric diagonal composition */
+body.role-rep-three .profile-card {
+    grid-template-columns: minmax(0, 1fr) 430px;
+    gap: 20px 40px;
+    padding: 100px 48px 48px;
+    background: linear-gradient(122deg, #faf5ff 0 68%, #eadcff 68%);
+}
+
+body.role-rep-three .profile-card > img {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    width: 400px;
+    height: 570px;
+    clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%);
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+}
+
+body.role-rep-three .profile-card > h1 { grid-column: 1; grid-row: 1; }
+body.role-rep-three .profile-card > h2 { grid-column: 1; grid-row: 2; }
+body.role-rep-three .info-grid { grid-column: 1; grid-row: 3; grid-template-columns: 1fr; }
+body.role-rep-three .profile-card > div.section:nth-of-type(2) { grid-column: 1; grid-row: 4; }
+body.role-rep-three .profile-card > div.section:nth-of-type(3) { grid-column: 1 / -1; grid-row: 5; }
+body.role-rep-three .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 6; }
+body.role-rep-three .profile-card > div.section:nth-of-type(5) { grid-column: 2; grid-row: 6; }
+
+/* FOURTH YEAR REPRESENTATIVE — senior editorial portfolio */
+body.role-rep-four .profile-card {
+    grid-template-columns: 300px minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    padding: 100px 46px 46px;
+    background: linear-gradient(#fff9fa, #fff);
+}
+
+body.role-rep-four .profile-card > img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 270px;
+    height: 360px;
+    border-radius: 8px;
+    outline: 12px double rgba(159,18,57,.22);
+}
+
+body.role-rep-four .profile-card > h1 { grid-column: 2 / -1; grid-row: 1; align-self: end; border-bottom: 3px solid #9f1239; padding-bottom: 18px; }
+body.role-rep-four .profile-card > h2 { grid-column: 2; grid-row: 2; }
+body.role-rep-four .info-grid { grid-column: 2 / -1; grid-row: 3; }
+body.role-rep-four .profile-card > div.section:nth-of-type(2) { grid-column: 1 / span 2; grid-row: 4; }
+body.role-rep-four .profile-card > div.section:nth-of-type(3) { grid-column: 3; grid-row: 4; margin-top: 0; }
+body.role-rep-four .profile-card > div.section:nth-of-type(4) { grid-column: 1; grid-row: 5; }
+body.role-rep-four .profile-card > div.section:nth-of-type(5) { grid-column: 2 / -1; grid-row: 5; }
+
+/* Collapse every unique composition safely on tablets and phones. */
+@media (max-width: 980px) {
+    body.role-profile-page .profile-card,
+    body.role-adviser .profile-card,
+    body.role-program-chair .profile-card,
+    body.role-assistant-chair .profile-card,
+    body.role-vp-internal .profile-card,
+    body.role-vp-external .profile-card,
+    body.role-secretary .profile-card,
+    body.role-treasurer .profile-card,
+    body.role-communications .profile-card,
+    body.role-business .profile-card,
+    body.role-committee .profile-card,
+    body.role-rep-two .profile-card,
+    body.role-rep-three .profile-card,
+    body.role-rep-four .profile-card {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 82px 28px 34px;
+        background: linear-gradient(145deg, #fff, var(--role-soft));
+    }
+
+    body.role-vp-internal .profile-card::before { padding-left: 28px; }
+
+    body.role-profile-page .profile-card > img,
+    body.role-profile-page .profile-card > h1,
+    body.role-profile-page .profile-card > h2,
+    body.role-profile-page .info-grid,
+    body.role-profile-page .profile-card > div.section:nth-of-type(2),
+    body.role-profile-page .profile-card > div.section:nth-of-type(3),
+    body.role-profile-page .profile-card > div.section:nth-of-type(4),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        grid-column: 1;
+        grid-row: auto;
+        transform: none;
+        clip-path: none;
+    }
+
+    body.role-profile-page .profile-card > img,
+    body.role-adviser .profile-card > img,
+    body.role-program-chair .profile-card > img,
+    body.role-assistant-chair .profile-card > img,
+    body.role-vp-internal .profile-card > img,
+    body.role-vp-external .profile-card > img,
+    body.role-secretary .profile-card > img,
+    body.role-treasurer .profile-card > img,
+    body.role-communications .profile-card > img,
+    body.role-business .profile-card > img,
+    body.role-committee .profile-card > img,
+    body.role-rep-two .profile-card > img,
+    body.role-rep-three .profile-card > img,
+    body.role-rep-four .profile-card > img {
+        width: min(100%, 430px);
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+        justify-self: center;
+        margin: 0 0 30px;
+        border: 8px solid #fff;
+        border-radius: 24px;
+        outline: 2px solid color-mix(in srgb, var(--role-primary) 40%, transparent);
+        box-shadow: 0 20px 45px rgba(31,5,55,.2);
+    }
+
+    body.role-profile-page .profile-card > h1,
+    body.role-program-chair .profile-card > h1,
+    body.role-communications .profile-card > h1 {
+        justify-self: center;
+        margin: 0;
+        padding: 0;
+        color: var(--role-deep);
+        background: none;
+        border: 0;
+        text-align: center;
+        text-shadow: none;
+    }
+
+    body.role-profile-page .profile-card > h2,
+    body.role-program-chair .profile-card > h2,
+    body.role-communications .profile-card > h2 {
+        justify-self: center;
+        align-self: auto;
+        margin: 12px 0 28px;
+    }
+
+    body.role-profile-page .info-grid,
+    body.role-assistant-chair .info-grid,
+    body.role-vp-external .info-grid,
+    body.role-rep-three .info-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body.role-profile-page .profile-card > div.section,
+    body.role-profile-page .profile-card > div.section:nth-of-type(2),
+    body.role-profile-page .profile-card > div.section:nth-of-type(3),
+    body.role-profile-page .profile-card > div.section:nth-of-type(4),
+    body.role-profile-page .profile-card > div.section:nth-of-type(5) {
+        margin-top: 16px;
+        padding: 28px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    body.role-profile-page .profile-card,
+    body.role-adviser .profile-card,
+    body.role-program-chair .profile-card,
+    body.role-assistant-chair .profile-card,
+    body.role-vp-internal .profile-card,
+    body.role-vp-external .profile-card,
+    body.role-secretary .profile-card,
+    body.role-treasurer .profile-card,
+    body.role-communications .profile-card,
+    body.role-business .profile-card,
+    body.role-committee .profile-card,
+    body.role-rep-two .profile-card,
+    body.role-rep-three .profile-card,
+    body.role-rep-four .profile-card {
+        padding: 76px 16px 20px;
+    }
+
+    body.role-profile-page .info-grid,
+    body.role-assistant-chair .info-grid,
+    body.role-vp-external .info-grid,
+    body.role-rep-three .info-grid {
+        grid-template-columns: 1fr;
     }
 }
