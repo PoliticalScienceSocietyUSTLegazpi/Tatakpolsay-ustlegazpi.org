@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UST-L Political Science Student Portal</title>
     <link rel="preload" as="image" href="images/logo.png" fetchpriority="high">
-        <link rel="preload" as="image" href="images/home-portal-bg-optimized.webp" media="(min-width: 721px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/home-portal-bg-optimized.webp" media="(min-width: 721px)" fetchpriority="high">
     <link rel="preload" as="image" href="images/home-mobile-bg-optimized.webp" media="(max-width: 720px)" fetchpriority="high">
-    <link rel="stylesheet" href="style.css?v=home-desktop-mobile-8">
+    <link rel="prefetch" as="image" href="images/background1-optimized.webp?v=2">
+    <link rel="prefetch" as="image" href="images/background-portrait.jpg">
+    <style>
+        html, body { background-color: #16072f; }
+        .home-hero {
+            background: #16072f url("images/home-portal-bg-optimized.webp") center / cover no-repeat;
+        }
+        @media (max-width: 720px) {
+            .home-hero {
+                background-image: url("images/home-mobile-bg-optimized.webp");
+                background-position: center top;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css?v=bg-fast-1">
 </head>
 
 <body class="home-page">

@@ -9137,6 +9137,42 @@ body.role-profile-page .profile-card > div.section:nth-of-type(5) {
 }
 
 /* ================================================================
+   Immediate background paint and matched optimized preloads
+   ================================================================ */
+
+/* Use the lightweight background everywhere the desktop artwork appears. */
+body.page-background,
+body.profile-background {
+    background-image:
+        linear-gradient(rgba(60, 9, 108, .08), rgba(60, 9, 108, .08)),
+        url("images/background1-optimized.webp?v=2") !important;
+    background-color: #68419a !important;
+}
+
+/* Mobile browsers can defer a GPU-promoted negative layer until interaction.
+   Keep the fixed artwork but paint it as a normal composited layer. */
+body.page-background::before,
+body.profile-background::before {
+    background-image:
+        linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
+        url("images/background1-optimized.webp?v=2") !important;
+    background-color: #68419a !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    will-change: auto !important;
+}
+
+@media (max-width: 900px), (orientation: portrait) {
+    body.page-background::before,
+    body.profile-background::before {
+        background-image:
+            linear-gradient(rgba(60, 9, 108, .04), rgba(60, 9, 108, .04)),
+            url("images/background-portrait.jpg") !important;
+        background-position: center top !important;
+    }
+}
+
+/* ================================================================
    Uniform officer profiles — all use the Auditor visual system
    ================================================================ */
 body.role-profile-page {
