@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concerns | UST-L Political Science</title>
+    <title>Concern | UST-L Political Science</title>
 
-        <link rel="preload" as="image" href="../images/logo.png" fetchpriority="high">
     <link rel="preload" as="image" href="../images/background1-optimized.webp?v=2" media="(min-width: 901px) and (orientation: landscape)" fetchpriority="high">
-        <link rel="preload" as="image" href="../images/background-portrait.jpg" media="(max-width: 900px), (orientation: portrait)" fetchpriority="high">
+    <link rel="preload" as="image" href="../images/background-portrait.jpg" media="(max-width: 900px), (orientation: portrait)" fetchpriority="high">
     <link rel="prefetch" as="image" href="../images/home-portal-bg-optimized.webp">
     <link rel="prefetch" as="image" href="../images/home-mobile-bg-optimized.webp">
-
+    <link rel="preload" as="image" href="../images/logo.png" fetchpriority="high">
     <link rel="stylesheet" href="../style.css?v=bg-fast-1">
 </head>
 
-<body class="page-background">
+<body class="page-background resources-page concern-page">
 
 <nav class="navbar">
     <div class="logo">
@@ -30,46 +28,69 @@
         <li><a href="accomplishments.html">Accomplishments</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="concern.html">Concerns</a></li>
+        <li><a href="concern.html" class="active-page">Concern</a></li>
     </ul>
 </nav>
 
 <header class="page-banner standard-hero-banner">
-    <h1 class="page-title">Concerns</h1>
+    <h1 class="page-title">Concern</h1>
 
     <div class="hero-divider">
         <span></span>
         <img class="divider-leaf" src="../images2/laurel-divider.png" alt="" aria-hidden="true">
         <span></span>
     </div>
-
 </header>
 
-<section class="accomplishment-section">
-
-    <div class="accomplishment-card concern-card">
-        <h2>Anonymous Concern Form</h2>
-
+<main class="resources-hub-section concern-hub-section">
+    <section class="resources-intro-card concern-intro-card" aria-labelledby="concern-intro-title">
+        <div class="concern-intro-icon" aria-hidden="true">&#128172;</div>
+        <h2 id="concern-intro-title">Your Voice Matters</h2>
         <p>
-            Have a concern, suggestion, report, or feedback for the Political Science Society?
-            To encourage honesty and openness, concerns may be submitted anonymously through
-            our online concern form.
+            Share a concern, suggestion, report, or feedback with the Political Science Society.
+            The anonymous form provides a safe and respectful space for every student voice.
         </p>
+    </section>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScfOFr23mScKAOw8o8gJXsz8ODZ9bD1pa1fXqSXfn3WB-nO6A/viewform?usp=publish-editor"
-           class="btn"
-           target="_blank">
-            Submit an Anonymous Concern
-        </a>
+    <div class="resources-grid concern-grid">
+        <article class="resource-hub-card concern-action-card">
+            <div class="resource-icon" aria-hidden="true">&#128221;</div>
+            <p class="concern-card-label">Anonymous Form</p>
+            <h3>Submit a Concern</h3>
+            <p>
+                Tell us what happened, offer a suggestion, or share feedback that may help improve
+                the organization and the student experience.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScfOFr23mScKAOw8o8gJXsz8ODZ9bD1pa1fXqSXfn3WB-nO6A/viewform?usp=publish-editor"
+               class="concern-submit-button"
+               target="_blank"
+               rel="noopener noreferrer">
+                Open Anonymous Concern Form
+                <span aria-hidden="true">&rarr;</span>
+            </a>
+        </article>
+
+        <article class="resource-hub-card concern-privacy-card">
+            <div class="resource-icon" aria-hidden="true">&#128274;</div>
+            <p class="concern-card-label">Privacy and Respect</p>
+            <h3>Your Identity Is Not Required</h3>
+            <p>
+                You may submit without providing your name. Responses are received confidentially
+                by the Political Science Society and reviewed with care.
+            </p>
+            <ul class="concern-assurance-list">
+                <li>Anonymous submission</li>
+                <li>Confidential review</li>
+                <li>Respectful handling</li>
+            </ul>
+        </article>
     </div>
 
-    <div class="anonymous-note">
-    🔒 Your identity is not required. Responses are received confidentially by the Political Science Society.
-</div>
-
-</section>
+    <p class="concern-support-note">
+        For urgent safety concerns or emergencies, please contact the appropriate school office or local emergency service directly.
+    </p>
+</main>
 
 <script src="../script.js"></script>
-
 </body>
 </html>
