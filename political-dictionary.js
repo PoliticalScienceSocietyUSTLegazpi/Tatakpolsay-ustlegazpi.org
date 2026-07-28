@@ -4980,11 +4980,13 @@ const politicalDictionary = [
 
 const dictionaryContainer = document.getElementById("dictionaryContainer");
 const dictionarySearch = document.getElementById("dictionarySearch");
+const dictionarySearchButton = document.getElementById("dictionarySearchButton");
 const categoryButtons = document.querySelectorAll(".dict-category");
 const alphabetButtons = document.querySelectorAll(".alphabet-btn");
 
 let currentCategory = "All";
 let currentLetter = "All";
+let currentSearchText = "";
 
 function getSavedTerms() {
     return JSON.parse(localStorage.getItem("savedTerms")) || [];
@@ -5011,17 +5013,24 @@ function saveDictionaryTerm(term) {
 }
 
 function displayDictionaryTerms() {
-    const searchText = dictionarySearch.value.toLowerCase();
+    const searchText = currentSearchText;
+    const exactMatches = searchText
+        ? politicalDictionary.filter(item => item.term.toLowerCase() === searchText)
+        : [];
 
-    const filteredTerms = politicalDictionary
+    /* Search dictionary headings only. An exact heading wins; otherwise,
+       partial typing still narrows the list by the term's name. */
+    const termMatches = searchText
+        ? (exactMatches.length > 0
+            ? exactMatches
+            : politicalDictionary.filter(item => item.term.toLowerCase().includes(searchText)))
+        : politicalDictionary;
+
+    const filteredTerms = termMatches
         .filter(item => {
-            const matchesSearch =
-                item.term.toLowerCase().includes(searchText) ||
-                item.category.toLowerCase().includes(searchText) ||
-                item.definition.toLowerCase().includes(searchText) ||
-                item.simple.toLowerCase().includes(searchText) ||
-                item.example.toLowerCase().includes(searchText) ||
-                item.related.toLowerCase().includes(searchText);
+            /* A typed term is a direct lookup, so old category or alphabet
+               selections must not hide the requested dictionary entry. */
+            if (searchText) return true;
 
             const matchesCategory =
                 currentCategory === "All" ||
@@ -5031,7 +5040,7 @@ function displayDictionaryTerms() {
                 currentLetter === "All" ||
                 item.term.charAt(0).toUpperCase() === currentLetter;
 
-            return matchesSearch && matchesCategory && matchesLetter;
+            return matchesCategory && matchesLetter;
         })
         .sort((a, b) => a.term.localeCompare(b.term));
 
@@ -5065,7 +5074,18 @@ function displayDictionaryTerms() {
     }).join("");
 }
 
-dictionarySearch.addEventListener("input", displayDictionaryTerms);
+dictionarySearchButton.addEventListener("click", () => {
+    currentSearchText = dictionarySearch.value.trim().toLowerCase();
+    displayDictionaryTerms();
+
+    requestAnimationFrame(() => {
+        const firstResult = dictionaryContainer.querySelector(".dictionary-card");
+        (firstResult || dictionaryContainer).scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    });
+});
 
 categoryButtons.forEach(button => {
     button.addEventListener("click", () => {

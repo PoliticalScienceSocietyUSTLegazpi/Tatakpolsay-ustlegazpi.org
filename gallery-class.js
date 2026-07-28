@@ -63,9 +63,10 @@ const title = document.getElementById("class-gallery-title");
 const subtitle = document.getElementById("class-gallery-subtitle");
 const count = document.getElementById("class-gallery-count");
 const grid = document.getElementById("class-gallery-grid");
-const batchSize = 7;
-const initialVisibleImages = window.matchMedia("(max-width: 720px)").matches ? 3 : 7;
-const maxConcurrentLoads = 2;
+const compactGallery = window.matchMedia("(max-width: 720px)").matches;
+const batchSize = compactGallery ? 6 : 7;
+const initialVisibleImages = compactGallery ? 3 : 7;
+const maxConcurrentLoads = compactGallery ? 1 : 2;
 let renderedCount = 0;
 let loadSentinel = null;
 let observer = null;
@@ -74,11 +75,15 @@ let activeImageLoads = 0;
 const imageLoadQueue = [];
 let lightbox = null;
 let lightboxImage = null;
+let lightboxLoader = null;
+let lightboxRequestId = 0;
 let lockedScrollPosition = 0;
 
 function closeLightbox() {
     if (!lightbox) return;
+    lightboxRequestId += 1;
     lightbox.classList.remove("is-open");
+    lightbox.classList.remove("is-loading");
     lightbox.setAttribute("aria-hidden", "true");
     lightboxImage.removeAttribute("src");
     document.body.classList.remove("gallery-lightbox-open");
@@ -91,8 +96,9 @@ function setupLightbox() {
     lightbox = document.createElement("div");
     lightbox.className = "gallery-lightbox";
     lightbox.setAttribute("aria-hidden", "true");
-    lightbox.innerHTML = '<button class="gallery-lightbox-close" type="button" aria-label="Close full image">&times;</button><div class="gallery-lightbox-stage"><img alt=""></div>';
+    lightbox.innerHTML = '<button class="gallery-lightbox-close" type="button" aria-label="Close full image">&times;</button><div class="gallery-lightbox-stage"><img alt=""><div class="gallery-lightbox-loader" role="status" aria-live="polite">Loading full image...</div></div>';
     lightboxImage = lightbox.querySelector("img");
+    lightboxLoader = lightbox.querySelector(".gallery-lightbox-loader");
 
     lightbox.addEventListener("click", function(event) {
         if (event.target === lightbox || event.target.classList.contains("gallery-lightbox-stage") || event.target.closest(".gallery-lightbox-close")) {
@@ -109,15 +115,33 @@ function setupLightbox() {
 
 function openLightbox(item, index) {
     if (!lightbox) setupLightbox();
+    const requestId = ++lightboxRequestId;
     lockedScrollPosition = window.scrollY;
     lightboxImage.alt = gallery.title + " photo " + (index + 1);
-    lightboxImage.src = item.full;
+    lightboxImage.src = item.thumbnail;
+    lightboxLoader.textContent = "Loading full image...";
     lightbox.classList.add("is-open");
+    lightbox.classList.add("is-loading");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.top = "-" + lockedScrollPosition + "px";
     document.body.classList.add("gallery-lightbox-open");
     document.documentElement.classList.add("gallery-lightbox-open");
     lightbox.querySelector(".gallery-lightbox-close").focus();
+
+    const fullImage = new Image();
+    fullImage.decoding = "async";
+    fullImage.onload = function() {
+        if (requestId !== lightboxRequestId || !lightbox.classList.contains("is-open")) return;
+        lightboxImage.src = item.full;
+        lightbox.classList.remove("is-loading");
+        lightboxLoader.textContent = "Full image loaded";
+    };
+    fullImage.onerror = function() {
+        if (requestId !== lightboxRequestId) return;
+        lightbox.classList.remove("is-loading");
+        lightboxLoader.textContent = "Preview shown";
+    };
+    fullImage.src = item.full;
 }
 
 function loadQueuedImages() {
@@ -160,6 +184,9 @@ function createPhotoCard(item, index) {
     image.decoding = "async";
     image.loading = index < initialVisibleImages ? "eager" : "lazy";
     image.fetchPriority = index < initialVisibleImages ? "high" : "low";
+    image.width = 480;
+    image.height = 480;
+    image.draggable = false;
     image.dataset.src = item.thumbnail;
 
     if (index < initialVisibleImages) {
@@ -217,7 +244,7 @@ function setupProgressiveLoading() {
                 imageObserver.unobserve(entry.target);
                 queueImage(entry.target);
             });
-        }, { rootMargin: "160px 0px" });
+        }, { rootMargin: compactGallery ? "70px 0px" : "140px 0px", threshold: 0.01 });
     }
 
     renderNextBatch();
@@ -233,7 +260,7 @@ function setupProgressiveLoading() {
                     });
                 }
             }
-        }, { rootMargin: "180px 0px" });
+        }, { rootMargin: compactGallery ? "120px 0px" : "180px 0px", threshold: 0.01 });
         observer.observe(loadSentinel);
     } else {
         grid.querySelectorAll("img[data-src]").forEach(queueImage);
