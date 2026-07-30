@@ -44,6 +44,7 @@ body.wisdom-page {
     top: -120px;
     right: -120px;
     filter: blur(40px);
+    pointer-events: none;
 }
 
 .wisdom-hero::after {
@@ -56,6 +57,7 @@ body.wisdom-page {
     bottom: -100px;
     left: -100px;
     filter: blur(40px);
+    pointer-events: none;
 }
 
 /* ===========================
@@ -227,6 +229,8 @@ body.wisdom-page {
 
     margin: 35px auto 0;
     max-width: 1000px;
+    position: relative;
+    z-index: 2;
 }
 
 .category {
@@ -240,6 +244,9 @@ body.wisdom-page {
     cursor: pointer;
     font-size: 16px;
     transition: .35s;
+    position: relative;
+    z-index: 2;
+    touch-action: manipulation;
 }
 
 .category:hover,
@@ -648,6 +655,24 @@ body.wisdom-page {
 }
 
 @media (max-width: 600px) {
+    .category-filter {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        max-width: 520px;
+        gap: 10px;
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+
+    .category {
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 8px;
+        line-height: 1.25;
+        -webkit-tap-highlight-color: transparent;
+    }
+
     .hero-header h1 {
         font-size: 30px;
     }
