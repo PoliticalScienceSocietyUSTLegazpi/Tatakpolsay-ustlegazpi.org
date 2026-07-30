@@ -1,28 +1,5 @@
-// ===================================
-// RANDOM BACKGROUND
-// ===================================
-
-const backgrounds = [
-    "../images/backgrounds/wisdom1.png",
-    "../images/backgrounds/wisdom2.png",
-    "../images/backgrounds/wisdom3.png"
-];
-
-const resolvedBackgrounds = backgrounds.map(src =>
-    new URL(src, document.baseURI).href
-);
-
-resolvedBackgrounds.forEach(src => {
-    const img = new Image();
-    img.src = src;
-});
-
-const randomBg = resolvedBackgrounds[Math.floor(Math.random() * resolvedBackgrounds.length)];
-
-document.body.style.setProperty(
-    "--wisdom-bg",
-    `url("${randomBg}")`
-);
+// The selected optimized background is set in the page head so it starts
+// loading before the rest of the Political Wisdom interface.
 
 // ===================================
 // REMOVE DUPLICATE QUOTES
@@ -73,24 +50,25 @@ let activeCategory = null;
 let selectedCategory = null;
 let activeQuotePool = politicalQuotes;
 
-// Preload only the first few author images first
-politicalQuotes.slice(0, 30).forEach(q => {
-    if(q.image){
-        const img = new Image();
-        img.src = q.image;
-    }
-});
-
-// Preload the rest later after the page is already loaded
+// Let the page background finish first, then cache author images afterward.
 window.addEventListener("load", () => {
     setTimeout(() => {
-        politicalQuotes.slice(30).forEach(q => {
+        politicalQuotes.slice(0, 30).forEach(q => {
             if(q.image){
                 const img = new Image();
                 img.src = q.image;
             }
         });
-    }, 2500);
+
+        setTimeout(() => {
+            politicalQuotes.slice(30).forEach(q => {
+                if(q.image){
+                    const img = new Image();
+                    img.src = q.image;
+                }
+            });
+        }, 3500);
+    }, 900);
 });
 
 // ===================================

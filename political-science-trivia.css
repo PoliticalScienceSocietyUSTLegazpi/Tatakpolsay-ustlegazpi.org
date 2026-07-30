@@ -245,7 +245,7 @@ body.collection-page {
     min-height: 100vh;
     background-image:
         linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-        url("images2/political-trivia/Political-trivia-saved-facts.jpg") !important;
+        url("images2/political-trivia/Political-trivia-saved-facts-optimized.webp") !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -444,6 +444,8 @@ body.collection-page .category-badge {
 
     margin: 35px auto 0;
     max-width: 1000px;
+    position: relative;
+    z-index: 2;
 }
 
 .category {
@@ -457,6 +459,9 @@ body.collection-page .category-badge {
     cursor: pointer;
     font-size: 16px;
     transition: .35s;
+    position: relative;
+    z-index: 2;
+    touch-action: manipulation;
 }
 
 .category:hover,
@@ -559,6 +564,24 @@ body.collection-page .category-badge {
 }
 
 @media (max-width: 600px) {
+    .category-filter {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        max-width: 520px;
+        gap: 10px !important;
+        padding: 0 2px;
+        box-sizing: border-box;
+    }
+
+    .category {
+        width: 100%;
+        min-height: 48px;
+        padding: 10px 8px !important;
+        line-height: 1.25;
+        -webkit-tap-highlight-color: transparent;
+    }
+
     .trivia-hero h1 {
         font-size: 30px !important;
     }
@@ -641,6 +664,6 @@ body.collection-page .category-badge {
     body.collection-page::before {
         background-image:
             linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-            url("images2/political-trivia/Political-trivia-saved-facts.jpg");
+            url("images2/political-trivia/Political-trivia-saved-facts-optimized.webp");
     }
 }

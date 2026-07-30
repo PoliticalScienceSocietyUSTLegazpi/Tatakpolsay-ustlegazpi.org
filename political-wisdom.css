@@ -12,7 +12,7 @@ body {
 body.wisdom-page {
     background:
         linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-        var(--wisdom-bg, url("images/backgrounds/wisdom1.png")) center/cover fixed no-repeat !important;
+        var(--wisdom-bg, url("images/backgrounds/wisdom1-optimized.webp")) center/cover fixed no-repeat !important;
 }
 
 /* ===========================
@@ -724,7 +724,7 @@ body.wisdom-page {
         pointer-events: none;
         background:
             linear-gradient(rgba(20,20,20,.45), rgba(20,20,20,.45)),
-            var(--wisdom-bg, url("images/backgrounds/wisdom1.png")) center / cover no-repeat;
+            var(--wisdom-bg, url("images/backgrounds/wisdom1-optimized.webp")) center / cover no-repeat;
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
         will-change: transform;
