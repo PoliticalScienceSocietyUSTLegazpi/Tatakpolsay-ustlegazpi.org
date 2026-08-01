@@ -6314,7 +6314,7 @@ body.home-page {
         min-height: 100vh !important;
         background:
             linear-gradient(180deg, rgba(10, 4, 32, .38) 0%, rgba(10, 4, 32, .18) 42%, rgba(10, 4, 32, .08) 100%),
-            url("images/home-mobile-bg-optimized.webp") center top / cover no-repeat !important;
+            url("images/home-mobile-bg-optimized.webp?v=3") center top / cover no-repeat !important;
         overflow: hidden;
     }
 
@@ -6702,7 +6702,7 @@ body:not(.home-page) .nav-links a:hover::after {
         min-height: 100vh !important;
         background:
             linear-gradient(180deg, rgba(10, 4, 32, .28) 0%, rgba(10, 4, 32, .12) 48%, rgba(10, 4, 32, .04) 100%),
-            url("images/home-mobile-bg-optimized.webp") center top / cover no-repeat !important;
+            url("images/home-mobile-bg-optimized.webp?v=3") center top / cover no-repeat !important;
     }
 
     .home-page .navbar.home-navbar {
