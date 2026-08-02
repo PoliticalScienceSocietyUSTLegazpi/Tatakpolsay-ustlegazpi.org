@@ -1,6 +1,3 @@
-User-agent: Googlebot-Image
-Disallow: /images2/laurel-divider.png
-
 User-agent: *
 Allow: /
 
