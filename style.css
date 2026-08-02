@@ -5361,9 +5361,13 @@ body.home-page {
     width: 74px;
     height: 44px;
     display: block;
-    object-fit: contain;
     flex: 0 0 auto;
+    background: url("images2/laurel-divider.png") center / contain no-repeat;
     filter: drop-shadow(0 3px 8px rgba(255, 214, 10, .28));
+}
+
+.home-feature-laurel {
+    background: url("images2/laurel-divider.png") center / contain no-repeat;
 }
 
 .home-subtitle {
@@ -8153,7 +8157,7 @@ body.gallery-lightbox-open {
         background: linear-gradient(90deg, #d99f16, #ffd95a, #d99f16) !important;
     }
 
-    .home-page .home-feature-divider img {
+    .home-page .home-feature-divider .home-feature-laurel {
         display: block !important;
         width: 65px !important;
         height: 42px !important;
