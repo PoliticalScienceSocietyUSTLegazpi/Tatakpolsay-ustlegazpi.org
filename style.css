@@ -5362,12 +5362,12 @@ body.home-page {
     height: 44px;
     display: block;
     flex: 0 0 auto;
-    background: url("images2/laurel-decoration.png") center / contain no-repeat;
+    background: url("images2/laurel-site-decoration.png") center / contain no-repeat;
     filter: drop-shadow(0 3px 8px rgba(255, 214, 10, .28));
 }
 
 .home-feature-laurel {
-    background: url("images2/laurel-decoration.png") center / contain no-repeat;
+    background: url("images2/laurel-site-decoration.png") center / contain no-repeat;
 }
 
 .home-subtitle {
