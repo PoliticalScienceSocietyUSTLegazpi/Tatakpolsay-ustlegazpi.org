@@ -11385,3 +11385,32 @@ body.about-page .page-title {
         font-size: 18px !important;
     }
 }
+
+/* iPad landscape: keep the About heading group centered on the full page. */
+@media (min-width: 901px) and (max-width: 1400px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+    body.about-page .page-banner {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    body.about-page .page-title,
+    body.about-page .hero-divider,
+    body.about-page .page-subtitle {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+}
+
+/* Keep the Explore divider's center as the real laurel image on mobile/Desktop-site view. */
+.home-page .home-feature-divider .home-feature-laurel {
+    display: block !important;
+    width: 65px !important;
+    height: 42px !important;
+    flex: 0 0 auto !important;
+    object-fit: contain !important;
+    background: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
