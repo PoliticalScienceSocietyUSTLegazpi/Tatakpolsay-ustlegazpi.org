@@ -11403,10 +11403,10 @@ body.about-page .page-title {
     }
 }
 
-/* iPad portrait: raise the fixed About-page artwork so it stays visible while scrolling. */
-@media (min-width: 901px) and (max-width: 1500px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
+/* iPad portrait, including Safari's Desktop Website mode: keep the artwork higher. */
+@media (min-width: 700px) and (max-width: 1500px) and (orientation: portrait) {
     body.about-page.page-background::before {
-        background-position: center -14vh !important;
+        background-position: center -15vh !important;
     }
 }
 
