@@ -11403,6 +11403,13 @@ body.about-page .page-title {
     }
 }
 
+/* iPad portrait: raise the fixed About-page artwork so it stays visible while scrolling. */
+@media (min-width: 901px) and (max-width: 1500px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    body.about-page.page-background::before {
+        background-position: center -14vh !important;
+    }
+}
+
 /* Keep the Explore divider's center as the real laurel image on mobile/Desktop-site view. */
 .home-page .home-feature-divider .home-feature-laurel {
     display: block !important;
