@@ -11415,9 +11415,9 @@ body.about-page .page-title {
     border-radius: 0 !important;
 }
 
-/* iPad portrait: raise only the About page artwork so Lady Justice and the left building enter view sooner. */
+/* iPad/tablet portrait: raise the shared page artwork so Lady Justice and the left building enter view sooner. */
 @media (min-width: 768px) and (max-width: 1500px) and (orientation: portrait) {
-    body.about-page.page-background::before {
-        background-position: center -96px !important;
+    body.page-background::before {
+        background-position: center -240px !important;
     }
 }
