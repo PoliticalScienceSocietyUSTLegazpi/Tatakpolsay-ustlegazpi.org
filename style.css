@@ -11403,10 +11403,21 @@ body.about-page .page-title {
     }
 }
 
-/* iPad portrait, including Safari's Desktop Website mode: keep the artwork higher. */
+/* About page on iPad portrait, including Safari's Desktop Website mode. */
 @media (min-width: 700px) and (max-width: 1500px) and (orientation: portrait) {
+    body.about-page.page-background {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
+            url("images/background-portrait.jpg") !important;
+        background-size: cover !important;
+        background-position: center -12vh !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+    }
+
     body.about-page.page-background::before {
-        background-position: center -15vh !important;
+        content: none !important;
+        display: none !important;
     }
 }
 
